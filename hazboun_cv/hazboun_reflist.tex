@@ -1,8 +1,10 @@
-\documentclass[11pt,letterpaper,sans]{moderncv}
-
+\documentclass[11pt,letterpaper,sans,unicode]{moderncv}
+\usepackage{babel,xpatch}
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{multirow}
+%\usepackage{enumitem}
+\usepackage{relsize}
 \usepackage{textcomp}
 \usepackage{units}
 \usepackage{lineno}
@@ -11,15 +13,21 @@
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{longtable}
-\usepackage{comment}
 \usepackage{xcolor}
+\usepackage[gen]{eurosym}
+\usepackage{comment}
+\usepackage{etaremune}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{hyperref}
+%\usepackage[latin9]{inputenc}
 
 
-\moderncvstyle{banking}                           
-\moderncvcolor{blue}    
+\moderncvstyle{banking}
+\moderncvcolor{blue}
 
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[top=1in,bottom=1in,left=1in,right=1in,bindingoffset=0cm]{geometry}
+\usepackage[top=0.7in,bottom=0.7in,left=1in,right=1in,bindingoffset=0cm]{geometry}
 \setlength{\hintscolumnwidth}{3cm}
 \usepackage{enumitem}
 \setlist{nolistsep}
@@ -27,22 +35,28 @@
 \usepackage{mathabx}
 \cfoot{{\color{gray} Page \thepage\ of \pageref{LastPage}}}
 
-
+\def\baas{{Bulletin of AAS}}               % Bulletin of the AAS
 \def\prd{{Phys. Rev.} D}
-\def\PRL{{Phys.Rev.} Lett}
+\def\prl{{Phys.Rev.} Lett}
+\def\ajp{{Amer. J. Phys}}
 \def\apjl{{Astrophys. J.} Lett}
 \def\apj{{Astrophys. J.}}
-\def\CQG{{Class. Quantum Grav.}}
+\def\cqg{{Class. Quantum Grav.}}
 \def\aaps{{A\&AS}}
 \def\pasj{{PASJ}}
-\def\mnras{{MNRAS}} 
+\def\mnras{{MNRAS}}
 \def\aapr{{A\&ARv}}
 \def\aap{{A\&A}}
+\def\grg{{Gen. Rel.\&Grav.}}
 \def\na{{New Astronomy}}
 \def\ptp{{Progress of Theoretical Physics}}
 \def\apjs{{ApJS}}
 \def\araa{{ARA\&A}}
-\def\ssr{{Space Sci. Rev.}} 
+\def\ssr{{Space Sci. Rev.}}
+\def\jpcs{{J. Phys. Conf. Ser.}}
+\def\npb{{Nucl. Phys. B}}
+\def\clrpaawp{{Can. Lon. Ran. Plan A\&A}}
+
 
 \newcommand{\cvreference}[9]{%
   \textbf{#1}\newline% Name
@@ -50,111 +64,124 @@
   \ifthenelse{\equal{#3}{}}{}{#3\newline}%
   \ifthenelse{\equal{#4}{}}{}{#4\newline}%
   \ifthenelse{\equal{#5}{}}{}{#5\newline}%
-   \ifthenelse{\equal{#6}{}}{}{#6\newline}%
+  \ifthenelse{\equal{#6}{}}{}{#6\newline}%
   \ifthenelse{\equal{#7}{}}{}{#7\newline}%
   \ifthenelse{\equal{#8}{}}{}{\emailsymbol~{\footnotesize \texttt{\emaillink[]{#8}}}\newline}
-    \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}}
- 
+  \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}
+  }
+
+
+%%%%%% My Macros %%%%%
+\newcommand{\editem}[7]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{\hspace{4mm}\textbf{Advisor:} #5}{\hspace{4mm}\textbf{#6:} \textit{#7} }}
+%School City/State, School, Degree, Degree Date, Advisor, title type, title
+
+\newcommand{\bsitem}[4]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{}{}}
+%School City/State, School, Degree, Degree Date
+
+\newcommand{\pubitem}[4]{\item \cvitem{}{\textit{#1}.\\ {#2} \\{\color{color1} \href{#3}{\color{color1} #4}} }\vspace{-0.3cm}} %title, authors, href, journal %\textcolor{red}{$\bullet$} $141$ citations.
+
+\newcommand{\software}[3]{\cventry{}{\bbullet #2}{\hspace{2mm}\texttt{#1}}{}{}{\bbullet \color{color1} \url{#3}}} %Name, Description, URL
+%\vspace{-0.1cm}
+
+\newcommand{\talkitem}[3]{\item \textit{#1}\\{#2}, #3} %Title, Meeting, Date
+\newcommand{\invtalkitem}[3]{\item \textbf{#1}, \hfill{#2} \\ \textit{\color{color1}``#3''} \vspace{-0.1cm}} %Place, Title, Date
+
+%\newcommand{\invtalkitem}[3]{\cvitemwithcomment{}{\item #1 \color{color1}\textit{``#2''}}{#3} \vspace{-0.1cm}}
+\newcommand{\outtalkitem}[4]{\cvitemwithcomment{}{\bbullet #1, #2 \color{color1}\textit{``#3''}}{#4} \vspace{-0.1cm}} %What, Where, Title, Year
+\newcommand{\studentitem}[4]{\item \textit{#1}, {#2} \hfill{#3} \\ \textit{``#4''} } %Name, School, Date, Title\vspace{-0.1cm}
+\newcommand{\confitem}[2]{\item #1 \hfill #2} %Meeting, Date
+
+\newcommand{\blucirc}{{\color{color1} $\circ\;\;$}}
+\newcommand{\bbullet}{\hspace{0.4cm}\blucirc}
+
 %----------------------------------------------------------------------------------------
 %   NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
 
-\firstname{\huge{Stephen~R.}} % Your first name
-\familyname{\huge{Taylor}} % Your last name
+\firstname{\huge{Jeffrey~S.}} % Your first name
+\familyname{\huge{Hazboun}} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
 \title{\huge{References}}
-\address{TAPIR Group, MC $350$-$17$, California Institute of Technology}{1200 E. California Blvd, Pasadena, CA 91125}
-\vspace{15pt}\phone[mobile]{+1~(626)~689-5832}
-\email{srtaylor@caltech.edu}
-\homepage{stevertaylor.github.io}
-\social[github]{stevertaylor}
-\social[linkedin][linkedin.com/in/stephen-taylor-a8164787]{stephen-taylor $\;\;\bullet\;\;$ \today}
+\address{Physical Sciences Division, University of Washington Bothell}{18115 Campus Way NE Bothell, WA 98011-8246, USA}
+\phone[mobile]{+1~(801)~440~2156}
+\email{hazboun@uw.edu}
+\homepage{jeffreyhazboun.github.io}
+\social[github]{Hazboun6}
+\social[twitter]{jeffreyhazboun}
+%\social[linkedin][linkedin.com/in/]{stephen-taylor}
 
-\lhead{{\color{gray} \fontsize{10}{22}\mdseries\upshape{Stephen~R.~Taylor}}}
-\rhead{{\color{gray} \fontsize{10}{10}\mdseries\upshape{srtaylor@caltech.edu}}}
+\lhead{{\color{gray} \fontsize{10}{22}\mdseries\upshape{Jeffrey~S.~Hazboun}}}
+\rhead{{\color{gray} \fontsize{10}{10}\mdseries\upshape{hazboun@uw.edu}}}
 
 %\definecolor{color1}{HTML}{1f77b4}
 %\hypersetup{urlcolor=color1,linkcolor=color1}
 
 \begin{document}
-\makecvtitle 
+\makecvtitle
 
-%----------------------------------------------------------------------------------------
-%  REFERENCES
-%----------------------------------------------------------------------------------------
-\vspace{-30pt}
-\section{} 
-\vspace{15pt}
-\begin{cvcolumns}
-\cvcolumn{}{\cvreference{Dr~Jonathan~R.~Gair [\textit{PhD advisor}]}
-    {Reader, School of Mathematics}
-    {James Clerk Maxwell Building}
-    {Peter Guthrie Tait Road}
-    {University of Edinburgh}
-    {Edinburgh UK, EH9 3FD}
-    {}
-    {J.Gair@ed.ac.uk}
-    {+44 (0) 131 650 4899}
-    }
-\cvcolumn{}{\cvreference{Prof. Xavier Siemens}
-    {}%{Chair, NANOGrav}
-    {Director, NANOGrav Physics Frontier Center}
-    {Associate Professor}
-    {Department of Physics}
-    {University of Wisconsin--Milwaukee}
-    {Milwaukee,  WI 53201}
-    {siemens@gravity.phys.uwm.edu}
-    {+1 (414) 229 6439}
-    }
-   \end{cvcolumns}
- 
-\vspace{20pt}
-\begin{cvcolumns}
-\cvcolumn{}{\cvreference{Dr~Michele~Vallisneri}
-    {Director's Fellow}
-    {Jet Propulsion Laboratory}
-    {California Institute of Technology}
-    {4800 Oak Grove Drive}
-    {Pasadena, CA 91109}
-    {}
-    {michele.vallisneri@jpl.nasa.gov}
-    {+1 (818) 395 9073}
-    }
-    \cvcolumn{}{\cvreference{Prof. Alberto Vecchio}
-    {Head of Group}
-    {School of Physics \& Astronomy}
-    {University of Birmingham}
-    {Edgbaston}
-    {Birmingham UK, B15 2TT}
-    {}
-    {av@star.sr.bham.ac.uk}
-    {+44 (0) 1214 146447}
-    }
-    \end{cvcolumns}
-    
-\vspace{20pt}
-\begin{cvcolumns}
-\cvcolumn{}{\cvreference{Dr~T.~Joseph~W.~Lazio}
-    {Chief Scientist}
-    {Interplanetary Network Directorate}
-    {Jet Propulsion Laboratory}
-    {California Institute of Technology}
-    {4800 Oak Grove Drive}
-    {Pasadena, CA 91109}
-    {Joseph.Lazio@jpl.nasa.gov}
-    {+1 (818) 354 4198}
-    }
-    \cvcolumn{}{\cvreference{Prof.~Neil~J.~Cornish}
-    {Professor of Physics}
-    {eXtreme Gravity Institute}
-    {Department of Physics}
-    {Montana State University}
-    {Bozeman, MT 59717}
-    {}
-    {ncornish@montana.edu}
-    {+1 (406) 994 7986}
-    }
-    \end{cvcolumns}
-    
+\vspace{-13mm}
+
+\section{References}
+
+%\subsection{Research}
+	\renewcommand\labelitemi{\blucirc}
+	\begin{itemize}[leftmargin=8mm]
+	\setlength\itemsep{0.05mm}
+	\item \textbf{Dr. Xavier Siemens} \emph{NANOGrav PI/ Collaborator}
+        		\newline Professor of Physics
+		\newline Oregon State University, Corvallis, OR 97331
+		\newline \emph{Phone:} 541-737-7512 \qquad \emph{email:} \url{xavier.siemens@oregonstate.edu}
+		\newline
+	\item \textbf{Dr. Stephen Taylor} \emph{NANOGrav Detection Working Group Co-chair/ Collaborator}
+       		\newline Professor of Physics
+		\newline Vanderbilt University, Nashville, TN 37235
+		\newline \emph{Phone:} 615-322-7311 \qquad email:\url{stephen.r.taylor@vanderbilt.edu}
+		\newline
+	\item \textbf{Dr. Joey Key} \emph{Post Doctoral Advisor}
+       		\newline Professor of Physics
+		\newline University of Washington Bothell, Bothell, WA 98011
+		\newline \emph{Phone:} 425-352-5497 \qquad email:\url{joey.key@uw.edu}
+		\newline
+	\item \textbf{Dr. Joseph Romano} %\emph{Post Doctoral Advisor}
+       		\newline Professor of Physics
+		\newline Texas Tech University, Lubbock, TX 79409
+		\newline \emph{Phone:} 806-834-6522 \qquad email:\url{joseph.d.romano@ttu.edu}
+		\newline
+	\item \textbf{Dr. James T. Wheeler} \emph{PhD Advisor, Utah State University}
+        		\newline Associate Professor of Physics
+		\newline Utah State University, Logan, UT 84321
+		\newline \emph{Phone:} 435-770-7601 \qquad email:\url{jim.wheeler@usu.edu}
+		\newline
+	\item \textbf{Dr. Tevian Dray} \emph{MS Advisor, Oregon State University}
+     		\newline Professor of Mathematics
+		\newline Oregon State University, Corvallis, OR 97331
+		\newline \emph{Phone:} 	541-737-5159 \qquad \emph{email:} \url{tevian@math.oregonstate.edu}
+		\newline
+	\item \textbf{Dr. Jan Sojka}
+        		\newline Department Chair \& Professor of Physics
+		\newline Utah State University, Logan, UT 84321
+		\newline \emph{Phone:} 435-797-2857 \qquad email: \url{jan.sojka@usu.edu}
+		\newline
+	\begin{comment}
+	\item \textbf{Dr. Damon T. Spayde} %\emph{Teaching Reference}
+       		\newline Department Chair \& Associate Professor of Physics
+		\newline Hendrix College, Conway, AR 72032
+		\newline \emph{Phone:} 501-450-1251 \qquad email:\url{spayde@hendrix.edu}
+		\newline
+	\item \textbf{Dr. Shane Larson} \emph{Collaborator}
+        		\newline Research Associate Professor
+		\newline Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA)
+		\newline Northwestern University, Evanston, IL 60208
+		\newline \emph{Phone:} 847-467-4305 \qquad \emph{email:}\url{s.larson@northwestern.edu}
+		\newline
+	\item \textbf{Dr. Todd Tinsley} %\emph{Teaching Reference}
+       		\newline Associate Professor of Physics
+		\newline Hendrix College, Conway, AR 72032
+		\newline \emph{Phone:} 501-450-1404 \qquad email:\url{tinsley@hendrix.edu}
+		\newline
+	\end{comment}
+	\end{itemize}
+%\subsection{Teaching}
+
 \end{document}

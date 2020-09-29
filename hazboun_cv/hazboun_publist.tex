@@ -1,8 +1,10 @@
-\documentclass[11pt,letterpaper,sans]{moderncv}
-
+\documentclass[11pt,letterpaper,sans,unicode]{moderncv}
+\usepackage{babel,xpatch}
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{multirow}
+%\usepackage{enumitem}
+\usepackage{relsize}
 \usepackage{textcomp}
 \usepackage{units}
 \usepackage{lineno}
@@ -11,16 +13,21 @@
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{longtable}
-\usepackage{comment}
 \usepackage{xcolor}
 \usepackage[gen]{eurosym}
+\usepackage{comment}
+\usepackage{etaremune}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{hyperref}
+%\usepackage[latin9]{inputenc}
 
 
-\moderncvstyle{banking}                           
-\moderncvcolor{blue}    
+\moderncvstyle{banking}
+\moderncvcolor{blue}
 
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[top=1in,bottom=1in,left=1in,right=1in,bindingoffset=0cm]{geometry}
+\usepackage[top=0.7in,bottom=0.7in,left=1in,right=1in,bindingoffset=0cm]{geometry}
 \setlength{\hintscolumnwidth}{3cm}
 \usepackage{enumitem}
 \setlist{nolistsep}
@@ -28,22 +35,28 @@
 \usepackage{mathabx}
 \cfoot{{\color{gray} Page \thepage\ of \pageref{LastPage}}}
 
-
+\def\baas{{Bulletin of AAS}}               % Bulletin of the AAS
 \def\prd{{Phys. Rev.} D}
-\def\PRL{{Phys.Rev.} Lett}
+\def\prl{{Phys.Rev.} Lett}
+\def\ajp{{Amer. J. Phys}}
 \def\apjl{{Astrophys. J.} Lett}
 \def\apj{{Astrophys. J.}}
-\def\CQG{{Class. Quantum Grav.}}
+\def\cqg{{Class. Quantum Grav.}}
 \def\aaps{{A\&AS}}
 \def\pasj{{PASJ}}
-\def\mnras{{MNRAS}} 
+\def\mnras{{MNRAS}}
 \def\aapr{{A\&ARv}}
 \def\aap{{A\&A}}
+\def\grg{{Gen. Rel.\&Grav.}}
 \def\na{{New Astronomy}}
 \def\ptp{{Progress of Theoretical Physics}}
 \def\apjs{{ApJS}}
 \def\araa{{ARA\&A}}
-\def\ssr{{Space Sci. Rev.}} 
+\def\ssr{{Space Sci. Rev.}}
+\def\jpcs{{J. Phys. Conf. Ser.}}
+\def\npb{{Nucl. Phys. B}}
+\def\clrpaawp{{Can. Lon. Ran. Plan A\&A}}
+
 
 \newcommand{\cvreference}[9]{%
   \textbf{#1}\newline% Name
@@ -51,272 +64,87 @@
   \ifthenelse{\equal{#3}{}}{}{#3\newline}%
   \ifthenelse{\equal{#4}{}}{}{#4\newline}%
   \ifthenelse{\equal{#5}{}}{}{#5\newline}%
-   \ifthenelse{\equal{#6}{}}{}{#6\newline}%
+  \ifthenelse{\equal{#6}{}}{}{#6\newline}%
   \ifthenelse{\equal{#7}{}}{}{#7\newline}%
   \ifthenelse{\equal{#8}{}}{}{\emailsymbol~{\footnotesize \texttt{\emaillink[]{#8}}}\newline}
-    \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}}
- 
+  \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}
+  }
+
+
+%%%%%% My Macros %%%%%
+\newcommand{\pubitem}[4]{\item \cvitem{}{\textit{#1}.\\ {#2} \\{\color{color1} \href{#3}{\color{color1} #4}} }\vspace{-0.3cm}} %title, authors, href, journal %\textcolor{red}{$\bullet$} $141$ citations.
+
+\newcommand{\software}[3]{\cventry{}{\bbullet #2}{\hspace{2mm}\texttt{#1}}{}{}{\bbullet \color{color1} \url{#3}}} %Name, Description, URL
+%\vspace{-0.1cm}
+
+\newcommand{\blucirc}{{\color{color1} $\circ\;\;$}}
+\newcommand{\bbullet}{\hspace{0.4cm}\blucirc}
+
 %----------------------------------------------------------------------------------------
 %   NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
 
-\firstname{\huge{Stephen~R.}} % Your first name
-\familyname{\huge{Taylor}} % Your last name
+\firstname{\huge{Jeffrey~S.}} % Your first name
+\familyname{\huge{Hazboun}} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
 \title{\huge{Publications}}
-\address{Department of Physics \& Astronomy, Vanderbilt University}{6301 Stevenson Center, Nashville, TN 37235, USA}
-\phone[mobile]{+1~(626)~689~5832}
-\email{stephen.r.taylor@vanderbilt.edu}
-\homepage{stevertaylor.github.io}
-\social[github]{stevertaylor}
-%\social[linkedin][linkedin.com/in/stephen-taylor-a8164787]{stephen-taylor $\;\;\bullet\;\;$ \today}
-\social[linkedin][linkedin.com/in/stephen-taylor-a8164787]{stephen-taylor}
+\address{Physical Sciences Division, University of Washington Bothell}{18115 Campus Way NE Bothell, WA 98011-8246, USA}
+\phone[mobile]{+1~(801)~440~2156}
+\email{hazboun@uw.edu}
+\homepage{jeffreyhazboun.github.io}
+\social[github]{Hazboun6}
+\social[twitter]{jeffreyhazboun}
+%\social[linkedin][linkedin.com/in/]{stephen-taylor}
 
-\lhead{{\color{gray} \fontsize{10}{22}\mdseries\upshape{Stephen~R.~Taylor}}}
-\rhead{{\color{gray} \fontsize{10}{10}\mdseries\upshape{stephen.r.taylor@vanderbilt.edu}}}
+\lhead{{\color{gray} \fontsize{10}{22}\mdseries\upshape{Jeffrey~S.~Hazboun}}}
+\rhead{{\color{gray} \fontsize{10}{10}\mdseries\upshape{hazboun@uw.edu}}}
 
 %\definecolor{color1}{HTML}{1f77b4}
 %\hypersetup{urlcolor=color1,linkcolor=color1}
 
-
 \begin{document}
-\makecvtitle 
+\makecvtitle
 
-\vspace{-2mm}
+\vspace{-13mm}
 %----------------------------------------------------------------------------------------
-%   WORK EXPERIENCE SECTION
+%  FULL PUBLICATION LIST
 %----------------------------------------------------------------------------------------
 
-%\section{Full Publication List} %\vspace{-0.3cm} 
+\section{Publications}
 
-\cvitem{}
-{
-\begin{tabular}{rcl}
-\textbf{Counts}: &\hspace{0.3cm} &{\textbf{38} papers published in major peer-reviewed journals} \\
-& &{(out of which \textbf{12} are first-authored papers, and \textbf{3} papers were covered by press releases).}
-\end{tabular}
-}
+$\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.google.com/citations?user=CbNY_MYAAAAJ&hl=en}{Google Scholar}}.
 
-$\bullet$ \textbf{Total number of citations:} 1800 (using Google Scholar), \textbf{h-index:} 22, \textbf{i10-index:} 28
+\subsection{Submitted}
 
-$\bullet$ \textbf{Metrics} available at Google Scholar: {\color{color1} \href{http://bit.ly/2hgVCzb}{http://bit.ly/2hgVCzb}}.
+\begin{etaremune}[leftmargin=8mm]
+\input{sub_entries}
+\end{etaremune}
 
-$\bullet$ \textbf{Full list of publications} can be found below, and at {\color{color1} \href{http://bit.ly/2fF3yGI}{http://bit.ly/2fF3yGI}}.
+\subsection{Published}
 
-\vspace{0.4cm}
-%\subsection{Submitted} \vspace{-0.3cm}
-%
-%\cvitem{}{\small
-%\hspace{-2cm}\begin{longtable}{rp{0.3cm}p{15.8cm}}
-%\textbf{1.} & & ``\textit{Mining Gravitational-wave Catalogs To Understand Binary Stellar Evolution: A New Hierarchical Bayesian Framework}'' \\ 
-%&&\textit{\textbf{S.~R.~Taylor}} and D.~Gerosa \\
-%&& \href{https://arxiv.org/abs/1806.08365}{{\color{color1} Submitted to Phys.~Rev.~D, arXiv:1806.08365 (2018)}}  
-%\end{longtable}
-%}
+\begin{etaremune}[leftmargin=8mm]
+\input{pub_entries}
+\end{etaremune}
 
-%\vspace{-0.6cm}
+\subsection{Technical and White Papers}
 
-Articles with significant student leadership (at time of publication) have student names \underline{underlined}.
+\begin{etaremune}[leftmargin=8mm]
+\input{wp_entries}
+\end{etaremune}
 
-%\subsection{Submitted} \vspace{-0.3cm}
-%
-%\cvitem{}{\small
-%\hspace{-2cm}\begin{longtable}{rp{0.3cm}p{15.8cm}}
-%\textbf{1.} & & ``\textit{The Astrophysics Of Nanohertz Gravitational Waves}'' \\ 
-%&&S.~Burke-Spolaor, \textit{\textbf{S.~R.~Taylor}}, [and 13 others] \\
-%&& \href{https://arxiv.org/abs/1811.08826}{{\color{color1} Submitted to The Astronomy and Astrophysics Review (A\&ARv), arXiv:1811.08826 (2018)}} \\
-%&& \textcolor{red}{$\bullet$} Comprehensive field review. \vspace{0.09cm}\\
-%\end{longtable}
-%}
+\section{Software Development}
+\subsection{Lead Developer}
+\software{Hasasia}{Python package for calculating pulsar timing array sensitivity curves and signal-to-noise ratios.}{https://pypi.org/project/hasasia/}
+\software{Pulsar Signal Simulator}{Python package for simulating pulsar observation data.}{https://github.com/PsrSigSim/PsrSigSim}
+\software{La Forge}{Python package for processing data from Bayesian analyses of PTA data.}{https://pypi.org/project/la-forge/}
+\software{Pulsar Data Toolbox}{Python package for accessing pulsar data files.}{https://pypi.org/project/pdat/}
 
-\subsection{Publications in major peer-reviewed journals} \vspace{-0.3cm}
-
-\cvitem{}{\small
-\hspace{-2cm}\begin{longtable}{rp{0.3cm}p{15.8cm}}
-\textbf{38.} & & ``\textit{Bayesian cross validation for gravitational-wave searches in pulsar-timing array data}'' \\ 
-&&\underline{H.~Wang}, \textit{\textbf{S.~R.~Taylor}}, M.~Vallisneri \\
-&& \href{https://academic.oup.com/mnras/article/487/3/3644/5511287}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{487}, 3 (2019)}} \vspace{0.09cm}\\
-\textbf{37.} & & ``\textit{The NANOGrav 11-Year Data Set: Limits on Gravitational Waves from Individual Supermassive Black Hole Binaries}'' \\ 
-&&K.~Aggarwal, Z.~Arzoumanian, P.~T.~Baker, [and 60 others, including \textit{\textbf{S.~R.~Taylor}}] \\
-&& \href{https://iopscience.iop.org/article/10.3847/1538-4357/ab2236}{{\color{color1} The Astrophysical Journal, \textbf{880}, 1 (2019)}} \\
-&& \textcolor{red}{$\bullet$} $12$ citations. \vspace{0.09cm}\\
-\textbf{36.} & & ``\textit{Constraining alternative polarization states of gravitational waves from individual black hole binaries using pulsar timing arrays}'' \\ 
-&&\underline{L.~O'Beirne}, N.~J.Cornish, S.~J.~Vigeland, \textit{\textbf{S.~R.~Taylor}} \\
-&& \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.99.124039}{{\color{color1} Physical Review D, \textbf{99}, 124039 (2019)}} \vspace{0.09cm}\\
-\textbf{35.} & & ``\textit{Catching Gravitational Waves With A Galaxy-sized Net Of Pulsars}'' \\ 
-&&\textit{\textbf{S.~R.~Taylor}}\\
-&& \href{https://kids.frontiersin.org/article/10.3389/frym.2019.00080}{{\color{color1} Frontiers For Young Minds, \textbf{7}:80 (2019)}} \\
-&& \textcolor{red}{$\bullet$} $1$ citation. Pedagogical article aimed at K-12 audience. \vspace{0.09cm}\\
-\textbf{34.} & & ``\textit{The Astrophysics Of Nanohertz Gravitational Waves}'' \\ 
-&&S.~Burke-Spolaor, \textit{\textbf{S.~R.~Taylor}}, [and 13 others] \\
-&& \href{https://arxiv.org/abs/1811.08826}{{\color{color1} The Astronomy and Astrophysics Review (A\&ARv), \textbf{27}, 1 (2019)}} \\
-&& \textcolor{red}{$\bullet$} $10$ citations. Comprehensive field review. \vspace{0.09cm}\\
-\textbf{33.} & & ``\textit{Mining Gravitational-wave Catalogs To Understand Binary Stellar Evolution: A New Hierarchical Bayesian Framework}'' \\ 
-&&\textit{\textbf{S.~R.~Taylor}} and D.~Gerosa \\
-&& \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.083017}{{\color{color1} Physical Review D, \textbf{98}, 083017 (2018)}} \\
-&& \textcolor{red}{$\bullet$} $15$ citations. Featured in PRD's Kaleidoscope review of October 2018. \vspace{0.09cm}\\
-\textbf{32.} & & ``\textit{Studying the solar system with the International Pulsar Timing Array}'' \\ 
-&&R.~N.~Caballero, Y.~J.~Guo, K.~J.~Lee, [and 77 others, including  \textit{\textbf{S.~R.~Taylor}}]\\
-&& \href{https://academic.oup.com/mnras/article-abstract/481/4/5501/5113478?redirectedFrom=fulltext}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{481}, 4 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $4$ citations. \vspace{0.09cm}\\
-\textbf{31.} & & ``\textit{The noise-marginalized optimal statistic: A robust hybrid frequentist-Bayesian statistic for the stochastic gravitational-wave background in pulsar timing arrays}'' \\ 
-&&S.~J.~Vigeland, \underline{K.~P.~Islo}, \textit{\textbf{S.~R.~Taylor}}, J.~A.~Ellis \\
-&& \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.044003}{{\color{color1} Physical Review D, \textbf{98}, 044003 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $1$ citation. \vspace{0.09cm}\\
-\textbf{30.} & & ``\textit{Improving timing sensitivity in the microhertz frequency regime: limits from PSR J1713+0747 on gravitational waves produced by super-massive black-hole binaries}'' \\ 
-&&B.~B.~P.~Perera, B.~W.~Stappers, S.~Babak, [and 25 others. including \textit{\textbf{S.~R.~Taylor}}]\\
-&& \href{https://academic.oup.com/mnras/article-abstract/478/1/218/4990951?redirectedFrom=fulltext}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{478}, 1 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $3$ citations. \vspace{0.09cm}\\
-\textbf{29.} & & ``\textit{The NANOGrav 11-year Data Set: Pulsar-timing Constraints On The Stochastic Gravitational-wave Background}'' \\ 
-&&Z.~Arzoumanian, P.~T.~Baker, A.~Brazier, [and 57 others. \textbf{Corresponding author:} \textit{\textbf{S.~R.~Taylor}}]\\
-&& \href{http://iopscience.iop.org/article/10.3847/1538-4357/aabd3b/meta}{{\color{color1} The Astrophysical Journal, \textbf{859}, 1 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $78$ citations. \vspace{0.09cm}\\
-\textbf{28.} & & ``\textit{The NANOGrav 11-year Data Set: High-precision timing of 45 Millisecond Pulsars}'' \\ 
-&&Z.~Arzoumanian, A.~Brazier, S.~Burke-Spolaor, [and 53 others, including \textit{\textbf{S.~R.~Taylor}}]\\
-&& \href{http://iopscience.iop.org/article/10.3847/1538-4365/aab5b0/meta}{{\color{color1} The Astrophysical Journal Supplement Series, \textbf{235}, 2 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $92$ citations. \vspace{0.09cm}\\
-\textbf{27.} & & ``\textit{Constraining alternative theories of gravity using pulsar timing arrays}'' \\ 
-&&N.~J.~Cornish, \underline{L.~O'Beirne}, \textit{\textbf{S.~R.~Taylor}}, N.~Yunes\\
-&& \href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.181101}{{\color{color1} Physical Review Letters, \textbf{120}, 181101 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $10$ citations. \vspace{0.09cm}\\
-\textbf{26.} & & ``\textit{Single Sources in the Low-Frequency Gravitational Wave Sky: properties and time to detection by pulsar timing arrays}'' \\ 
-&&\underline{L.~Z.~Kelley}, L.~Blecha, L.~Hernquist, A.~Sesana, \textit{\textbf{S.~R.~Taylor}} \\
-&& \href{https://academic.oup.com/mnras/article-abstract/477/1/964/4937809?redirectedFrom=fulltext}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{477}, 1 (2018)}}  \\
-&& \textcolor{red}{$\bullet$} $12$ citations. \vspace{0.09cm}\\
-\textbf{25.} & & ``\textit{The Local Nanohertz Gravitational-Wave Landscape From Supermassive Black Hole Binaries}'' \\ 
-&&C.~Mingarelli, J.~Lazio, A.~Sesana, J.~E.~Greene, J.~A.~Ellis, C.~P.~Ma, S.~Croft, S.~Burke-Spolaor, \textit{\textbf{S.~R.~Taylor}} \\
-&& \href{https://www.nature.com/articles/s41550-017-0299-6}{{\color{color1} Nature Astronomy, \textbf{Vol.~1}, p.~886-892 (2017)}} \\
-&& \textcolor{red}{$\bullet$} $36$ citations. Press release. \vspace{0.09cm}\\
-\textbf{24.} & & ``\textit{The gravitational wave background from massive black hole binaries in Illustris: spectral features and time to detection with pulsar timing arrays}'' \\ 
-&& \underline{L.~Z.~Kelley}, L.~Blecha, L.~Hernquist, A.~Sesana, \textit{\textbf{S.~R.~Taylor}} \\ 
-&& \href{https://academic.oup.com/mnras/article/471/4/4508/3899130/The-gravitational-wave-background-from-massive}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{471}, 4 (2017)}} \\
-&& \textcolor{red}{$\bullet$} $32$ citations. \vspace{0.09cm}\\
-\textbf{23.} & & ``\textit{Constraints on the dynamical environments of supermassive black-hole binaries using pulsar-timing arrays}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, \underline{J.~Simon}, L.~Sampson. \\
-&& \href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.181102}{{\color{color1} Physical Review Letters, \textbf{118}, 181102 (2017)}} \\
-&& \textcolor{red}{$\bullet$} $18$ citations. \vspace{0.09cm}\\
-\textbf{22.} & & ``\textit{All correlations must die: assessing the significance of a stochastic gravitational-wave background in pulsar timing arrays}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}},  L.~Lentati, S.~Babak, S, P.~Brem, J.~.R.~Gair, A.~Sesana, A.~Vecchio \\ 
-&&  \href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.95.042002}{{\color{color1} Physical Review D, \textbf{95}, 042002 (2017)}} \\
-&& \textcolor{red}{$\bullet$} $14$ citations. \vspace{0.09cm}\\
-\textbf{21.} & & ``\textit{High-precision timing of 42 millisecond pulsars with the European Pulsar Timing Array}'' \\ 
-&& G.~Desvignes, R.~N.~Caballero, L.~Lentati, [and 40 others, including \textit{\textbf{S.~R.~Taylor}}] \\ 
-&&  \href{http://mnras.oxfordjournals.org/content/458/3/3341}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{458}, 3 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $132$ citations. \vspace{0.09cm}\\
-\textbf{20.} & & ``\textit{From spin noise to systematics: stochastic processes in the first International Pulsar Timing Array data release}'' \\ 
-&& L.~Lentati, R.~M.~Shannon, W.~A.~Coles, [and 80 others, including \textit{\textbf{S.~R.~Taylor}}] \\ 
-&&  \href{http://mnras.oxfordjournals.org/content/458/2/2161}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{458}, 2 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $35$ citations. \vspace{0.09cm}\\
-\textbf{19.} & & ``\textit{The International Pulsar Timing Array: first data release}'' \\ 
-&& J.~P.~W.~Verbiest, L.~Lentati, G.~Hobbs, [and 89 others, including \textit{\textbf{S.~R.~Taylor}}] \\ 
-&&  \href{http://mnras.oxfordjournals.org/content/458/2/1267}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{458}, 2 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $140$ citations. \vspace{0.09cm}\\
-\textbf{18.} & & ``\textit{The NANOGrav nine-year data set: limits on the isotropic stochastic gravitational wave background}'' \\ 
-&& Z.~Arzoumanian, A.~Brazier, S.~Burke-Spolaor, [and 48 others, including \textit{\textbf{S.~R.~Taylor}}] \\ 
-&&  \href{http://iopscience.iop.org/article/10.3847/0004-637X/821/1/13/meta}{{\color{color1} The Astrophysical Journal, \textbf{821}, 1 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $153$ citations. Press release. \vspace{0.09cm}\\
-\textbf{17.} & & ``\textit{The noise properties of 42 millisecond pulsars from the European Pulsar Timing Array and their impact on gravitational-wave searches}'' \\ 
-&& R.~N.~Caballero, K.~J.~Lee, L.~Lentati, [and 36 others, including \textit{\textbf{S.~R.~Taylor}}] \\ 
-&&  \href{http://mnras.oxfordjournals.org/content/457/4/4421}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{457}, 4 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $27$ citations. \vspace{0.09cm}\\
-\textbf{16.} & & ``\textit{Are we there yet? Time to detection of nanohertz gravitational waves based on pulsar-timing array limits}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, M.~Vallisneri, J.~A.~Ellis, C.~M.~F.~Mingarelli, T.~J.~W.~Lazio, and R.~van Haasteren \\ 
-&&  \href{http://iopscience.iop.org/article/10.3847/2041-8205/819/1/L6/meta}{{\color{color1} The Astrophysical Journal Letters, \textbf{819}, 1 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $47$ citations. Press release, and cited in popular-science book. \vspace{0.09cm}\\
-\textbf{15.} & & ``\textit{Detecting eccentric supermassive black hole binaries with pulsar timing arrays: resolvable source strategies}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, E.~A.~Huerta, J.~R.~Gair, and S.~T.~McWilliams \\ 
-&& \href{http://iopscience.iop.org/article/10.3847/0004-637X/817/1/70/meta}{{\color{color1} The Astrophysical Journal, \textbf{817}, 1 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $13$ citations. \vspace{0.09cm}\\
-\textbf{14.} & & ``\textit{European Pulsar Timing Array limits on continuous gravitational waves from individual supermassive black hole binaries}'' \\ 
-&& S.~Babak, A.~Petiteau, A.~Sesana, P.~Brem, P.~A.~Rosado, \textit{\textbf{S.~R.~Taylor}}, [and 30 others] \\ 
-&& \href{http://mnras.oxfordjournals.org/content/455/2/1665}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{455}, 2 (2016)}} \\
-&& \textcolor{red}{$\bullet$} $72$ citations. \vspace{0.09cm}\\
-\textbf{13.} & & ``\textit{Mapping gravitational-wave backgrounds of arbitrary polarisation using pulsar timing arrays}'' \\ 
-&& J.~R.~Gair, J.~D.~Romano, and \textit{\textbf{S.~R.~Taylor}} \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.92.102003}{{\color{color1} Physical Review D, \textbf{92}, 102003 (2015)}} \\
-&& \textcolor{red}{$\bullet$} $16$ citations. \vspace{0.09cm}\\
-\textbf{12.} & & ``\textit{European Pulsar Timing Array limits on an isotropic stochastic gravitational-wave background}'' \\ 
-&& L.~Lentati, \textit{\textbf{S.~R.~Taylor}}, C.~M.~F.~Mingarelli, [and 33 others] \\ 
-&& \href{http://mnras.oxfordjournals.org/content/453/3/2576}{{\color{color1} Monthly Notices of the Royal Astronomical Society, \textbf{453}, 3 (2015)}} \\
-&& \textcolor{red}{$\bullet$} $182$ citations. \vspace{0.09cm}\\
-\textbf{11.} & & ``\textit{Detection of eccentric supermassive black hole binaries with pulsar timing arrays: signal-to-noise ratio calculations}'' \\ && E.~A.~Huerta, S.~T.~McWilliams, J.~R.~Gair, and \textit{\textbf{S.~R.~Taylor}} \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.92.063010}{{\color{color1} Physical Review D, \textbf{92}, 063010 (2015)}} \\
-&& \textcolor{red}{$\bullet$} $28$ citations. \vspace{0.09cm}\\
-\textbf{10.} & & ``\textit{Phase-coherent mapping of gravitational-wave backgrounds using ground-based laser interferometers}'' \\ 
-&& J.~D.~Romano, \textit{\textbf{S.~R.~Taylor}}, N.~J.~Cornish, J.~Gair, C.~M.~F.~Mingarelli, and R.~van Haasteren \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.92.042003}{{\color{color1} Physical Review D, \textbf{92}, 042003 (2015)}} \\
-&& \textcolor{red}{$\bullet$} $10$ citations. \vspace{0.09cm}\\
-\textbf{9.} & & ``\textit{Limits on anisotropy in the nanohertz stochastic gravitational wave background}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, C.~M.~F.~Mingarelli, J.~R.~Gair, [and 32 others] \\ 
-&& \href{http://journals.aps.org/prl/abstract/10.1103/PhysRevLett.115.041101}{{\color{color1} Physical Review Letters, \textbf{115}, 041101 (2015)}} \\
-&& \textcolor{red}{$\bullet$} $36$ citations. \vspace{0.09cm}\\
-\textbf{8.} & & ``\textit{Estimating the sensitivity of pulsar timing arrays}'' \\ 
-&& \underline{C.~J.~Moore}, \textit{\textbf{S.~R.~Taylor}}, and J.~R.~Gair \\ 
-&& \href{http://iopscience.iop.org/article/10.1088/0264-9381/32/5/055004/meta}{{\color{color1} Classical and Quantum Gravity, \textbf{32}, 5 (2015)}} \\
-&& \textcolor{red}{$\bullet$} $24$ citations. \vspace{0.09cm}\\
-\textbf{7.} & & ``\textit{Accelerated Bayesian model-selection and parameter-estimation in continuous gravitational-wave searches with pulsar-timing arrays}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, J.~A.~Ellis, and J.~R.~Gair \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.90.104028}{{\color{color1} Physical Review D, \textbf{90}, 104028 (2014)}} \\
-&& \textcolor{red}{$\bullet$} $20$ citations. \vspace{0.09cm}\\
-\textbf{6.} & & ``\textit{Mapping gravitational-wave backgrounds using methods from CMB analysis: Application to pulsar timing arrays}'' \\ 
-&& J.~R.~Gair, J.~D.~Romano, \textit{\textbf{S.~R.~Taylor}}, and C.~M.~F.~Mingarelli \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.90.082001}{{\color{color1} Physical Review D, \textbf{90}, 082001 (2014)}} \\
-&& \textcolor{red}{$\bullet$} $45$ citations. PRD Editors' Suggestion.\vspace{0.09cm}\\
-\textbf{5.} & & ``\textit{Searching for anisotropic gravitational-wave backgrounds using pulsar timing arrays}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}} and J.~R.~Gair \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.88.084001}{{\color{color1} Physical Review D, \textbf{88}, 084001 (2013)}} \\
-&& \textcolor{red}{$\bullet$} $48$ citations. \vspace{0.09cm}\\
-\textbf{4.} & & ``\textit{Hyper-efficient model-independent Bayesian method for the analysis of pulsar timing data}'' \\ 
-&& L.~Lentati, P.~Alexander, M.~P.~Hobson, \textit{\textbf{S.~R.~Taylor}}, J.~Gair, S.~T.~Balan, and R.~van Haasteren \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.87.104021}{{\color{color1} Physical Review D, \textbf{87}, 104021 (2013)}} \\
-&& \textcolor{red}{$\bullet$} $49$ citations. \vspace{0.09cm}\\
-\textbf{3.} & & ``\textit{Weighing the evidence for a gravitational-wave background in the first International Pulsar Timing Array data challenge}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, J.~R.~Gair, and L.~Lentati \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.87.044035}{{\color{color1} Physical Review D, \textbf{87}, 044035 (2013)}} \\
-&& \textcolor{red}{$\bullet$} $7$ citations. \vspace{0.09cm}\\
-\textbf{2.} & & ``\textit{Cosmology with the lights off: standard sirens in the Einstein Telescope era}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}} and J.~R.~Gair \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.86.023502}{{\color{color1} Physical Review D, \textbf{86}, 023502 (2012)}} \\
-&& \textcolor{red}{$\bullet$} $62$ citations. \vspace{0.09cm}\\
-\textbf{1.} & & ``\textit{Cosmology using advanced gravitational-wave detectors alone}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, J.~R.~Gair, and I.~Mandel \\ 
-&& \href{http://journals.aps.org/prd/abstract/10.1103/PhysRevD.85.023535}{{\color{color1} Physical Review D, \textbf{85}, 023535 (2012)}} \\
-&& \textcolor{red}{$\bullet$} $64$ citations. \vspace{0.09cm}\\
-\end{longtable}
-}
-
-\subsection{Book chapters, conference proceedings, white papers, and online articles} \vspace{-0.4cm}
-
-\cvitem{}{\small
-\hspace{-2cm}\begin{longtable}{rp{0.3cm}p{15.8cm}}
-\textbf{8.} & & ``\textit{NANOGrav Education and Outreach: Growing a Diverse and Inclusive Collaboration for Low-Frequency Gravitational Wave Astronomy}'' \\ 
-&& The NANOGrav Collaboration; P.~T.~Baker, H.~Blumer, A.~Brazier, S.~Chatterjee, B.~Christy, F.~Crawford, M.~E.~DeCesar, T.~Dolch, N.~E.~Garver-Daniels, J.~S.~Hazboun, K.~Holley-Bockelmann, D.~L.~Kaplan, J.~S.~Key, T.~C.~Klein, M.~T.~Lam, N.~Lewandowska, D.~R.~Lorimer, R.~S.~Lynch, M.~A. McLaughlin, N.~McMann, J.~Page, N.~T.~Palliyaguru, J.~D.~Romano, X.~Siemens, J.~K.~Swiggum, \textit{\textbf{S.~R.~Taylor}}, K.~Williamson \\ 
-&& {\color{color1} \href{https://arxiv.org/abs/1907.07348}{Submitted to the Astronomy \& Astrophysics 2020 Decadal Survey (2019), arXiv:1907.07348}} \vspace{0.09cm}\\
-\textbf{7.} & & ``\textit{The NANOGrav Program for Gravitational Waves and Fundamental Physics}'' \\ 
-&& A.~Brazier, S.~Chatterjee, T.~Cohen, J.~M.~Cordes, M.~E.~DeCesar, P.~B.~Demorest, J.~S.~Hazboun, M.~T.~Lam, R.~S.~Lynch, M.~A. McLaughlin, S.~M.~Ransom, X.~Siemens, \textit{\textbf{S.~R.~Taylor}}, S.~J.~Vigeland \\ 
-&& {\color{color1} \href{https://arxiv.org/abs/1908.05356}{Submitted to the Astronomy \& Astrophysics 2020 Decadal Survey (2019), arXiv:1908.05356}} \vspace{0.09cm}\\
-\textbf{6.} & & ``\textit{Supermassive Black-hole Demographics \& Environments With Pulsar Timing Arrays}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}}, S.~Burke-Spolaor, P.~T.~Baker, M.~Charisi, K.~Islo, L.~Z.~Kelley, D.~R.~Madison, J.~Simon, S.~Vigeland \\ 
-&& {\color{color1} \href{https://arxiv.org/abs/1903.08183}{Submitted to the Astronomy \& Astrophysics 2020 Decadal Survey (2019), arXiv:1903.08183}} \vspace{0.09cm}\\
-\textbf{5.} & & ``\textit{Astro2020 Science White Paper: The Next Decade of Astroinformatics and Astrostatistics}'' \\ 
-&& A.~Siemiginowska, G.~Eadie, I.~Czekala, [and 49 others, including \textit{\textbf{S.~R.~Taylor}}] \\ 
-&& {\color{color1} \href{https://arxiv.org/abs/1903.06796}{Submitted to the Astronomy \& Astrophysics 2020 Decadal Survey (2019), arXiv:1903.06796}} \vspace{0.09cm}\\
-\textbf{4.} & & ``\textit{From Megaparsecs To Milliparsecs: Galaxy Evolution \& Supermassive Black Holes with NANOGrav and the ngVLA}'' \\ 
-&& \textit{\textbf{S.~R.~Taylor}} and J.~Simon \\ 
-&& \href{http://ngvla.nrao.edu/page/scibook}{{\color{color1} Science With A Next-Generation Very Large Array [ngVLA science book] (2018)}} \vspace{0.09cm}\\
-\textbf{3.} & & ``\textit{Solar System Ephemerides, Pulsar Timing, Gravitational Waves, \& Navigation}'' \\ 
-&& T.~J.~W.~Lazio, S.~Bhaskaran, C.~Cutler, W.~M.~Folkner, R.~S.~Park, J.~A.~Ellis, T.~Ely, \textit{\textbf{S.~R.~Taylor}}, M.~Vallisneri \\ 
-&& \href{https://doi.org/10.1017/S1743921317009711}{{\color{color1} Pulsar Astrophysics the Next Fifty Years, Proceedings of the International Astronomical Union, IAU Symposium, Volume 337, pp. 150-153 (2018)}} \vspace{0.09cm}\\
-\textbf{2.} & & ``\textit{Summary of Session C1: pulsar timing arrays}'' \\ 
-&& R.~M.~Shannon, S.~Chamberlin, N.~J.~Cornish, J.~A.~Ellis, C.~M.~F.~Mingarelli, D.~Perrodin, P.~Rosado, A.~Sesana, \textit{\textbf{S.~R.~Taylor}}, [and 14 others] \\ 
-&& \href{http://link.springer.com/article/10.1007\%2Fs10714-014-1765-4}{{\color{color1} General Relativity and Gravitation, \textbf{46}:1765 (2014)}} \vspace{0.09cm}\\
-\textbf{1.} & & ``\textit{Using Swarm Intelligence To Accelerate Pulsar Timing Analysis}'' \\ 
-&& \textbf{S.~R.~Taylor}, J.~R.~Gair, L.~Lentati \\ 
-&& \href{https://arxiv.org/abs/1210.3489}{{\color{color1} arXiv:1210.3489 (2012)}} \vspace{0.09cm}\\
-\end{longtable}
-}
+\subsection{Development Team}
+\software{Enterprise}{Python package for bayesian PTA data analysis.}{https://github.com/nanograv/enterprise}
+\software{enterprise\underline{ }extensions}{Python package for building bayesian analysis models.}
+{https://github.com/nanograv/enterprise_extensions}
+\software{gwent}{Python package calculating gravitational wave sensitivities across the spectrum}{https://pypi.org/project/gwent/}
+\software{Tabletop PTA}{Python package for an acoustical PTA demonstration.}{https://pypi.org/project/tabletop_pta/}
 
 \end{document}
-
-
