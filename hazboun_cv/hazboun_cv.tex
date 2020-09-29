@@ -13,7 +13,6 @@
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{longtable}
-\usepackage{comment}
 \usepackage{xcolor}
 \usepackage[gen]{eurosym}
 \usepackage{comment}
@@ -65,28 +64,36 @@
   \ifthenelse{\equal{#3}{}}{}{#3\newline}%
   \ifthenelse{\equal{#4}{}}{}{#4\newline}%
   \ifthenelse{\equal{#5}{}}{}{#5\newline}%
-   \ifthenelse{\equal{#6}{}}{}{#6\newline}%
+  \ifthenelse{\equal{#6}{}}{}{#6\newline}%
   \ifthenelse{\equal{#7}{}}{}{#7\newline}%
   \ifthenelse{\equal{#8}{}}{}{\emailsymbol~{\footnotesize \texttt{\emaillink[]{#8}}}\newline}
-    \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}}
+  \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}
+  }
 
 
-%%% My Macros %%%%%
+%%%%%% My Macros %%%%%
 \newcommand{\editem}[7]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{\hspace{4mm}\textbf{Advisor:} #5}{\hspace{4mm}\textbf{#6:} \textit{#7} }} 
 %School City/State, School, Degree, Degree Date, Advisor, title type, title
 
 \newcommand{\bsitem}[4]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{}{}}
 %School City/State, School, Degree, Degree Date
  
-\newcommand{\pubitem}[4]{\item \cvitem{}{``\textit{#1}''.\\ {#2} \\{\color{color1} \href{#3}{\color{color1} #4}} }} %title, authors, href, journal %\textcolor{red}{$\bullet$} $141$ citations.
+\newcommand{\pubitem}[4]{\item \cvitem{}{\textit{#1}.\\ {#2} \\{\color{color1} \href{#3}{\color{color1} #4}} }\vspace{-0.3cm}} %title, authors, href, journal %\textcolor{red}{$\bullet$} $141$ citations.
 
-\newcommand{\software}[3]{\cventry{}{\bbullet #2}{\texttt{#1}}{}{}{\bbullet \color{color1} \url{#3}}} %Name, Description, URL
+\newcommand{\software}[3]{\cventry{}{\bbullet #2}{\hspace{2mm}\texttt{#1}}{}{}{\bbullet \color{color1} \url{#3}}} %Name, Description, URL
 %\vspace{-0.1cm}
 
-\newcommand{\talkitem}[3]{\item \textit{#1}\\{#2}, #3}
+\newcommand{\talkitem}[3]{\item \textit{#1}\\{#2}, #3} %Title, Meeting, Date
+\newcommand{\invtalkitem}[3]{\item \textbf{#1}, \hfill{#2} \\ \textit{\color{color1}``#3''} \vspace{-0.1cm}} %Place, Title, Date
+
+%\newcommand{\invtalkitem}[3]{\cvitemwithcomment{}{\item #1 \color{color1}\textit{``#2''}}{#3} \vspace{-0.1cm}}
+\newcommand{\outtalkitem}[4]{\cvitemwithcomment{}{\bbullet #1, #2 \color{color1}\textit{``#3''}}{#4} \vspace{-0.1cm}} %What, Where, Title, Year
+\newcommand{\studentitem}[4]{\item \textit{#1}, {#2} \hfill{#3} \\ \textit{``#4''} } %Name, School, Date, Title\vspace{-0.1cm}
+\newcommand{\confitem}[2]{\item #1 \hfill #2} %Meeting, Date
 
 \newcommand{\blucirc}{{\color{color1} $\circ\;\;$}}
 \newcommand{\bbullet}{\hspace{0.4cm}\blucirc}
+
 %----------------------------------------------------------------------------------------
 %   NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
@@ -124,7 +131,7 @@
 {\textsc{University of Washington Bothell}}
 {Bothell, WA}{}{} %\vspace{-6mm}
 %
-\cventry{August 2016--July 2018}{\hspace{0.4cm}{\blucirc}NANOGrav PFC Postdoctoral Fellow}{\textsc{University of Texas Rio Grande Valley}}{Brownsville, TX}{}{} %\vspace{-6mm}
+\cventry{August 2016--July 2018}{\hspace{0.4cm}{\blucirc}NANOGrav Physics Frontiers Center Postdoctoral Fellow}{\textsc{University of Texas Rio Grande Valley}}{Brownsville, TX}{}{} %\vspace{-6mm}
 %
 \cventry{August 2015--July 2016}{\hspace{0.4cm}{\blucirc}Visiting Assistant Professor}{\textsc{Hendrix College}}{Conway, AR}{}{} 
 %
@@ -160,94 +167,63 @@
 %----------------------------------------------------------------------------------------
 %   GRANTS & FUNDING
 %----------------------------------------------------------------------------------------
-%\cvitem{Jun 2016}{\textbf{``New Directions and New Opportunities for NANOGrav Astrophysics''}}{Awarded $\$11$k by the NANOGrav Physics Frontier Center for a proposal on behalf of the collaboration's Astrophysics Working Group. Funding ensured undergraduate/graduate students and outside experts could attend a sprint week in April $2017$ to advance several key areas of interest, and to achieve rapid progress on collaboration projects.}
-%\vspace{-2mm}
+
 \section{Grants, Funding \& Awards}
 
-\cvitemwithcomment{}{\textbf{Proposal (Institutional PI): ``The NANOGrav Physics Frontier Center''}}{2021-2026}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}National Science Foundation PHY \& AST; Physics Frontier Center \& MSIP programs. \\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Institutional sub-award: $\$788,741$ (estimated; final amount TBD)\\
-\end{tabular} \\
+%\cvitemwithcomment{}{\textbf{Proposal (Institutional PI): ``The NANOGrav Physics Frontier Center''}}{2021-2026}
+%\begin{tabular}{rcl}
+%&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}National Science Foundation PHY \& AST; Physics Frontier Center \& MSIP programs. \\
+%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Institutional sub-award: $\$788,741$ (estimated; final amount TBD)\\
+%\end{tabular} \\
 
-\cvitemwithcomment{}{\textbf{Proposal (PI): ``Multi-messenger Titans: Probing The Dynamics}}{2020-2023} \vspace{-2pt}
-\cvitemwithcomment{}{\hspace{80pt}\textbf{\& Environments Of Supermassive Binary Black Holes''}}{}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}National Science Foundation AST; Windows on the Universe program. \\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total award: $\$523,920$\\
-\end{tabular} \\
-
-\cvitemwithcomment{}{\textbf{Dean's Faculty Fellowship, Vanderbilt College of Arts \& Science}}{2019-2021}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Two-year fellowship awarded in support of untenured faculty in  their research and scholarship. \\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total award: $\$30,000$\\
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{Proposal (Co-I): ``Pulsar Timing Array GW Signal Analysis Using Big Data Techniques''}}{2019}
+\cvitemwithcomment{}{\textbf{Proposal (PI): ``Pulsar Timing Array GW Signal Analysis Using Big Data Techniques''}}{2019}
 \begin{tabular}{rcl}
 &\hspace{0.4cm} &{\color{color1} $\circ\;\;$}PI Jeffrey Hazboun, a submission to Amazon Web Services Machine Learning Research Awards. \\
 &\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total award: $\$50,000$ in AWS Promotional Credits.\\
 \end{tabular} \\
-\cvitemwithcomment{}{\textbf{Proposal (PI): ``Next Generation Methods For Gravitational Wave Searches''}}{2019}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}PI Stephen Taylor, a submission to the American Physical Society Gordon \& Betty \\
-&\hspace{0.4cm} &  \hspace{0.4cm}Moore Foundation Fundamental Physics Innovation Award. \\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total award: $\$5,000$.\\
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{Proposal (Co-author): ``Next Generation Methods for LISA Data Analysis''}}{2018}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}PI Curt Cutler, a submission to NASA ROSES LISA Preparatory Science. \\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total budget of $\$567,128$ (12/1/2018-11/30/2021), to be revised down to $\sim80\%$.\\
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{Chair, NANOGrav Gravitational Wave Detection Group}}{2018--}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Elected as chair for NANOGrav's dedicated working group on gravitational-wave \\
-&\hspace{0.4cm} &  \hspace{0.4cm}detection strategies, noise characterization, computational development, and signal modeling.\\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I strategize the broad analysis goals and deliverables of the group, allocating tasks and\\
-&\hspace{0.4cm} &  \hspace{0.4cm}resources amongst $\sim15-20$ active participants.
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{Co-chair, International Pulsar Timing Array (IPTA) Gravitational Wave Group}}{2018--2019}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Elected as one of three inaugural co-chairs for a dedicated working group on joint\\
-&\hspace{0.4cm} &  \hspace{0.4cm}gravitational-wave analyses between all regional pulsar-timing array collaborations.\\
-&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I was instrumental in proposing and carrying out a complete restructuring of the IPTA's \\
-&\hspace{0.4cm} &  \hspace{0.4cm}project management. The working-group structure now achieves tighter integration\\
-&\hspace{0.4cm} &  \hspace{0.4cm}of work across the global community of PTA scientists.
+
+%\cvitemwithcomment{}{\textbf{Co-chair, International Pulsar Timing Array (IPTA) Gravitational Wave Group}}{2018--2019}
+%\begin{tabular}{rcl}
+%&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Elected as one of three inaugural co-chairs for a dedicated working group on joint\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}gravitational-wave analyses between all regional pulsar-timing array collaborations.\\
+%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I was instrumental in proposing and carrying out a complete restructuring of the IPTA's \\
+%&\hspace{0.4cm} &  \hspace{0.4cm}project management. The working-group structure now achieves tighter integration\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}of work across the global community of PTA scientists.
 %&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I strategize the broad analysis goals and deliverables of the group, allocating tasks and\\
 %&\hspace{0.4cm} &  \hspace{0.4cm}resources amongst $\sim15-20$ active participants.
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{Marie Sk\l{}odowska-Curie Incoming Fellowship, University of Birmingham}}{2017}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}[Declined] Proposal ``GravPANTHER". Grant exceeds \euro$150$k.
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{OzGrav ARC Centre of Excellence, Level B Fellowship, Swinburne \& Monash}}{2017}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}[Declined] $7$-year senior research fellowship at Australian lecturer-level salary
-\end{tabular} \\
-\cvitemwithcomment{Proposal (Co-I)}{\textbf{``Exploring the frontiers of the nHz GW spectrum with PTAs''}}{2017}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Awarded $1$M CPU hours ($\$600$k grant) on the Blue Waters supercomputer at NCSA, \\
-&\hspace{0.4cm} &  \hspace{0.4cm}University of Illinois at Urbana Champaign. \\
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}The project developed a remote interactive interface for pulsar-timing GW searches \\
-&\hspace{0.4cm} &  \hspace{0.4cm}on the Blue Waters HPC architecture, using a custom-built Docker software container.
-\end{tabular} \\
-\cvitemwithcomment{Proposal (PI)}{\textbf{``New Directions and New Opportunities for NANOGrav Astrophysics''}}{2016}
-\begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Awarded $\$11$k by the NANOGrav Physics Frontier Center for a proposal on behalf \\
-&\hspace{0.4cm} &  \hspace{0.4cm}of the collaboration's Astrophysics Working Group. \\
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Funding ensured undergraduate/graduate students and outside experts could attend \\
-&\hspace{0.4cm} &  \hspace{0.4cm}a sprint week at West Virginia University in April $2017$ to advance several key areas \\
-&\hspace{0.4cm} &  \hspace{0.4cm}of interest, and to achieve rapid progress on collaboration projects.
-\end{tabular} \\
-\cvitemwithcomment{}{\textbf{International Pulsar Timing Array Steering Committee Prize --- ``Honorable Mention''}}{2016} \vspace{-0.1cm}
-\cvitemwithcomment{}{\textbf{Gravitational Wave International Committee Thesis Prize --- ``Honorable Mention''}}{2016} \vspace{-0.1cm}
-\cvitemwithcomment{}{\textbf{NASA Postdoctoral Fellowship at Jet Propulsion Laboratory}}{2014} \vspace{-0.1cm}
-\cvitemwithcomment{}{\textbf{Royal Astronomical Society Travel Awards [various; total $\pounds 1450$]}}{2013--2014} \vspace{-0.1cm}
-\cvitemwithcomment{}{\textbf{Christ's College (Cambridge) Travel Grants [various; total exceeds $\pounds 1$k]}}{2012--2014} \vspace{-0.1cm}
-\cvitemwithcomment{}{\textbf{Science and Technology Facilities Council (STFC) --- full PhD studentship award}}{2010} \vspace{-0.1cm}
-%\cvitemwithcomment{}{\textbf{Examiner's Prize, Oxford Physics Speaking Competition}}{2008} %\vspace{-0.1cm}
-%\cvitemwithcomment{}{\textbf{Oxford Physics department prize for outstanding laboratory work}}{2007} %\vspace{-0.1cm}
-%\cvitemwithcomment{}{\textbf{Undergraduate Scholarship in Jesus College, Oxford}}{2007--2010} %\vspace{-0.1cm}
-%\cvitemwithcomment{}{\textbf{Oxford Physics Dept.\ and Jesus College examination prizes [total exceeds $\pounds 1$k]}}{2006--2010}
+%\end{tabular} \\
+%\cvitemwithcomment{}{\textbf{Co-chair, International Pulsar Timing Array (IPTA) Gravitational Wave Group}}{2018--2019}
+%\begin{tabular}{rcl}
+%&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Elected as one of three inaugural co-chairs for a dedicated working group on joint\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}gravitational-wave analyses between all regional pulsar-timing array collaborations.\\
+%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I was instrumental in proposing and carrying out a complete restructuring of the IPTA's \\
+%&\hspace{0.4cm} &  \hspace{0.4cm}project management. The working-group structure now achieves tighter integration\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}of work across the global community of PTA scientists.
+%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I strategize the broad analysis goals and deliverables of the group, allocating tasks and\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}resources amongst $\sim15-20$ active participants.
+%\end{tabular} \\
+%\cvitemwithcomment{}{\textbf{Co-chair, International Pulsar Timing Array (IPTA) Gravitational Wave Group}}{2018--2019}
+%\begin{tabular}{rcl}
+%&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Elected as one of three inaugural co-chairs for a dedicated working group on joint\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}gravitational-wave analyses between all regional pulsar-timing array collaborations.\\
+%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I was instrumental in proposing and carrying out a complete restructuring of the IPTA's \\
+%&\hspace{0.4cm} &  \hspace{0.4cm}project management. The working-group structure now achieves tighter integration\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}of work across the global community of PTA scientists.
+%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}I strategize the broad analysis goals and deliverables of the group, allocating tasks and\\
+%&\hspace{0.4cm} &  \hspace{0.4cm}resources amongst $\sim15-20$ active participants.
+%\end{tabular} \\
+
+%\cvitemwithcomment{Proposal (PI)}{\textbf{``New Directions and New Opportunities for NANOGrav Astrophysics''}}{2016}
+%\begin{tabular}{rcl}
+%&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Awarded $\$11$k by the NANOGrav Physics Frontier Center for a proposal on behalf \\
+%&\hspace{0.4cm} &  \hspace{0.4cm}of the collaboration's Astrophysics Working Group. \\
+%&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Funding ensured undergraduate/graduate students and outside experts could attend \\
+%&\hspace{0.4cm} &  \hspace{0.4cm}a sprint week at West Virginia University in April $2017$ to advance several key areas \\
+%&\hspace{0.4cm} &  \hspace{0.4cm}of interest, and to achieve rapid progress on collaboration projects.
+%\end{tabular} \\
+%\cvitemwithcomment{}{\textbf{International Pulsar Timing Array Steering Committee Prize --- ``Honorable Mention''}}{2016} \vspace{-0.1cm}
+%\cvitemwithcomment{}{\textbf{Gravitational Wave International Committee Thesis Prize --- ``Honorable Mention''}}{2016} \vspace{-0.1cm}
+%\cvitemwithcomment{}{\textbf{NASA Postdoctoral Fellowship at Jet Propulsion Laboratory}}{2014} \vspace{-0.1cm}
 
 %----------------------------------------------------------------------------------------
 %  OBSERVING PROPOSALS
@@ -255,42 +231,44 @@
 %\vspace{-4mm}
 \section{Observing Proposals}
 
-\cvitemwithcomment{}{Co-I: \textbf{``High impact MSPs for the International Pulsar Timing Array"}}{Nov 2016}
+\cvitemwithcomment{}{Co-I: \textbf{``High Time Resolution Observations of a Bright Millisecond Pulsar"}}{November 2018}
 \begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Green Bank Telescope, proposal GBT$17$A-$353$ \\
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Status: awarded $21.0$ hours
-\end{tabular} \\
-\cvitemwithcomment{}{Co-I: \textbf{``High impact MSPs for the International Pulsar Timing Array"}}{Sep 2016}
+&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Greenbank Telescope, Project ID GBT$18B-355$ \\
+&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Status: awarded $5$ hours
+\end{tabular}
+
+\cvitemwithcomment{}{Co-I: \textbf{``High Cadence Observations of MSPs for Gravitational Wave Detection"}}{March 2020}
 \begin{tabular}{rcl}
-&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Arecibo Radio Telescope, proposal P$3133$ \\
+&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Arecibo Radio Telescope, proposal P$2945$ \\
 &\hspace{0.4cm} &{\color{color1} $\circ\;\;$}Status: awarded $32.5$ hours
 \end{tabular} \\
 
-\vspace{-10mm}
+%\vspace{-10mm}
+%----------------------------------------------------------------------------------------
+%  FULL PUBLICATION LIST
+%----------------------------------------------------------------------------------------
+
 \section{Publications}
 
-\cvitem{}
-{
-\begin{tabular}{rcl}
-\textbf{Counts}: &\hspace{0.3cm} &{\textbf{44} papers published in major peer-reviewed journals} \\
-& &{(out of which \textbf{12} are first-authored papers, and \textbf{4} papers were covered by press releases).}
-\end{tabular}
-}
+%\cvitem{}
+%{
+%\begin{tabular}{rcl}
+%\textbf{Counts}: &\hspace{0.3cm} &{\textbf{44} papers published in major peer-reviewed journals} \\
+%& &{(out of which \textbf{12} are first-authored papers, and \textbf{4} papers were covered by press releases).}
+%\end{tabular}
+%}
 
 %$\bullet$ \textbf{Total number of citations:} 2650 (using Google Scholar), \textbf{h-index:} 27, \textbf{i10-index:} 34
 
 $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.google.com/citations?user=CbNY_MYAAAAJ&hl=en}{Google Scholar}}.
 
-%$\bullet$ \textbf{Full list of publications} can be found later starting at Page 7, and at {\color{color1} \href{http://bit.ly/2fF3yGI}{http://bit.ly/2fF3yGI}}.
-
-%\subsection{Selected publications}
 \subsection{Submitted}
 
 \begin{etaremune}[leftmargin=8mm]
-	\input{sub_entries}
+\input{sub_entries}
 \end{etaremune}
 
-\subsection{\hspace{-5mm}Published}
+\subsection{Published}
 
 \begin{etaremune}[leftmargin=8mm]
 \input{pub_entries}
@@ -302,45 +280,6 @@ $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.go
 \input{wp_entries}
 \end{etaremune}
 
-
-%\begin{itemize}[leftmargin=8mm]
-
-
-
-%\end{itemize}
-
-
-%\vspace{-4mm}
-\section{Presentations}
-
-%$\bullet$ \textbf{$76$ oral presentations (of which $46$ were invited), with $12$ conference leadership roles.}
-
-%$\bullet$ Recent presentations are available to view at {\color{color1} \href{https://speakerdeck.com/stevertaylor}{https://speakerdeck.com/stevertaylor}}.
-
-%$\bullet$ \textbf{Full list of presentations} can be found later starting at Page 12, and at {\color{color1} \href{http://bit.ly/2fqo9BA}{http://bit.ly/2fqo9BA}}.
-
-\subsection{Select recent invited presentations (not including job talks)}
-
-\begin{itemize}[leftmargin=8mm]
-
-\item \textbf{Plenary}: \textit{Pulsar Timing Arrays: The Next Frontier Of Gravitational Wave Astronomy}, \\ 22nd International Conference on General Relativity and Gravitation (GR22) \& 13th Edoardo Amaldi Conference on Gravitational Waves (Amaldi13), Valencia, Spain, Jul 2019
-
-\item \textbf{Invited}: \textit{Supermassive Black Hole Demographics In The Era Of nHz Multimessenger Astronomy}, \\ American Astronomical Society (Special session: ``Beyond Photons"), Seattle WA, USA, Jan 2019
-
-\item \textbf{Invited}: \textit{Compact Object Genealogy Across The Gravitational Wave Spectrum}, \\ USC Colloquium, University of Southern California, Los Angeles CA, USA, Sep 2018
-
-\item \textbf{Invited}: \textit{Nanohertz-frequency gravitational-wave astrophysics with pulsar-timing arrays}, \\ COSPAR 2018, Pasadena CA, USA, Jul 2018
-
-\item \textbf{Invited}: \textit{Pulsar Timing Arrays: new advances toward detecting low-frequency gravitational waves},\\ American Physical Society, Columbus OH, USA, Apr 2018
-
-\item \textbf{Invited}: \textit{Beyond black holes with pulsar-timing arrays}, \\ NRAO-UVa Astronomy Colloquium, Charlottesville VA, USA, Mar 2018
-
-%\item \textbf{Invited}: \textit{Probing the nanohertz GW landscape with PTAs: a status report} \\ Gravitational Wave Physics \& Astronomy Workshop (GWPAW), Annecy, France, May 2017.
-
-%\item \textbf{Invited}: \textit{Gravitational-wave data-analysis techniques for pulsar-timing arrays} \\ IPTA conference, Stellenbosch, South Africa, Jun 2016.
-
-\end{itemize}
-
 %----------------------------------------------------------------------------------------
 %   TEACHING SECTION
 %----------------------------------------------------------------------------------------
@@ -348,77 +287,93 @@ $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.go
 \section{Teaching \& Mentoring}
 
 %\textbf{\textcolor{black}{Lecturing:}}
+\subsection{Teaching Positions}
+	\renewcommand\labelitemi{\blucirc}
+	\begin{itemize}[leftmargin=8mm]
+	\setlength\itemsep{1mm}
+	\item \textbf{\color{color1} Visiting Assistant Professor}, Hendrix College, \hfill Fall 2015 - Spring 2016
+        		\newline  \textit{Astronomy, Cosmology, Quantum Mechanics, and General Physics I}
+		\newline Mentored 4 undergraduate researchers.
+        \item \textbf{\color{color1} Physics Instructor}, Utah State University, \hfill Spring 2015
+        		\newline \textit{General Physics II:} Physics for the Life Sciences class. 
+		\newline Instructor of Record for 165 students.
+		\newline Supervised nine teaching assistants.
+        \item \textbf{\color{color1} Astronomy Instructor}, Utah State University, \hfill Fall 2014
+        		\newline Instructor of record for a 300+ person astronomy class. 
+		\newline Supervised two teaching assistants.
+        \item \textbf{\color{color1} Online Physics Course Developer \& Instructor}, Utah State University, \hfill 2012-2014
+        		\newline \textit{The Universe:} Proposed, developed and taught an online cosmology class.
+		\newline Aimed at non-science majors.
+		\newline Continuously offered for the last 7 semesters.
+		\newline Over 2000 students have taken this class. 
+        \item \textbf{\color{color1} Physics Instructor}, Utah State University, \hfill Summer 2011
+        		\newline \textbf\emph{General Physics I:} Instructor of Record
+	\item \textbf{\color{color1} MCAT Physics Instructor} Princeton Review, Portland, Oregon, \hfill Summer 2007
+		\newline Developed curriculum to help students review for physics portion of the MCAT exam.
+		\newline Taught students test-taking strategies to prepare for a stressful and fast-paced exam.
+	\end{itemize}
+	
 \subsection{Courses}
+	\hspace{8mm}\textbf{\color{color1} Courses Instructed,} \emph{Textbook}  (Students $\times$ Credit Hours $\!$) {\footnotesize [cumulative]}
+	
+	\vspace*{1mm}
+	
+	\begin{itemize}[leftmargin=8mm]
+        		\item \textbf{\color{color1} Quantum Mechanics,} \emph{Griffiths} (39 hrs) 
+			\item \textbf{\color{color1} Cosmology,} \emph{Ryden} (27 hrs) 
+			\item \textbf{\color{color1} Astronomy,} \emph{Bennett, et al.} (1300 hrs)
+			\item \textbf{\color{color1} The Universe,} \emph{Ratcliffe} (1200 hrs)
+			\item \textbf{\color{color1} Physics for the Life Sciences 1,} \emph{Cutnell \& Johnson} (75 hrs) 
+			\item \textbf{\color{color1} Physics for the Life Sciences 2,} \emph{Cutnell \& Johnson} (450 hrs)
+			\item \textbf{\color{color1} Physics for Engineers 1,} \emph{Halliday \& Resnick} (75 hrs) 
+        \end{itemize}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ ASTR 8070: Astro-statistics (Vanderbilt University)}{Spring 2021--}\vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ ASTR 3900/8090: General Relativity \& Cosmology (Vanderbilt University)}{Spring 2020, Fall 2020--}\vspace{-0.1cm}
+%\subsection{Postdoctoral scholar mentoring}
 
-\subsection{Guest lecturing}
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Dr.~Maria~Charisi}, Vanderbilt University}{Oct 2020--}\vspace{-0.1cm}
+%\hspace{0.71cm} Vanderbilt Initiative in Data-intensive Astrophysics (VIDA) Fellow %\vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Instructor at NANOGrav GW Detection workshop at Caltech}{Mar 2017}\vspace{-0.1cm}
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Dr.~Nihan~Pol}, Vanderbilt University}{Sep 2020--}\vspace{-0.1cm}
+%\hspace{0.71cm} Vanderbilt Initiative in Data-intensive Astrophysics (VIDA) Fellow %\vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Lecturer at NANOGrav Fall 2016 student workshop at UIUC}{Oct 2016}\vspace{-0.1cm}
+\subsection{Graduate Student Research Mentoring}
+\renewcommand\labelitemi{\blucirc}
+\begin{itemize}[leftmargin=8mm]
+	\studentitem{Brent Shapiro-Albert}{West Virginia University}{2018-2020}{Chromatic Covariances with the Pulsar Signal Simulator}
+	\studentitem{Andrew Kaiser}{University of Washington Bothell}{2018-2020}{Python package for gravitational-wave sensitivities across the spectrum}
+	
+\end{itemize}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Guest Lecturer for Caltech Ph$237$ class ``Gravitational Waves''}{May 2016}\vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Lecturer and co-organizer at NANOGrav Spring 2016 student workshop at Caltech}{Mar 2016}\vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Instructor at NANOGrav GW Detection workshop at Caltech}{Sep 2016}\vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Lecturer at ``CSI PTA'' Aspen Center for Physics workshop}{Jun 2015}
-
-\subsection{Postdoctoral scholar mentoring}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Dr.~Maria~Charisi}, Vanderbilt University}{Oct 2020--}\vspace{-0.1cm}
-\hspace{0.71cm} Vanderbilt Initiative in Data-intensive Astrophysics (VIDA) Fellow %\vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Dr.~Nihan~Pol}, Vanderbilt University}{Sep 2020--}\vspace{-0.1cm}
-\hspace{0.71cm} Vanderbilt Initiative in Data-intensive Astrophysics (VIDA) Fellow %\vspace{-0.1cm}
-
-%\textbf{\textcolor{black}{Undergraduate student mentoring:}}
-\subsection{Undergraduate student mentoring}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Levi Schult}, University of Virginia}{Jun 2020--}\vspace{-0.1cm}
-\hspace{0.71cm} Advisor for research project: \textit{``Rapid data-combination techniques for IPTA GW searches''}.%\vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Katherine Cella}, Vanderbilt University}{Feb 2020--}\vspace{-0.1cm}
-\hspace{0.71cm} Advisor for research project: \textit{``Host-galaxy demographics of PTA-detectable binary black holes''}.%\vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Qiaohong (Joanna) Wang}, Vanderbilt University}{Jan 2020--}\vspace{-0.1cm}
-\hspace{0.71cm} Advisor for research project: \textit{``Controlling outliers in time-series analysis using Gibbs sampling''}. \\
-\vspace{-0.1cm}
-\hspace{0.65cm}Awarded a Vanderbilt Data Science Institute Summer Research Program (DSI-SRP) Fellowship to \\
-\vspace{-0.1cm}
-\hspace{0.71cm}perform research in the Taylor group.\vspace{0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Sophia Singh}, University of Southern California}{Fall 2018--Summer 2019}\vspace{-0.1cm}
-\hspace{0.71cm} Advisor for research project: \textit{``The Optimal PTA Geometry for Gravitational Wave Detection''}.%\vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Haochen Wang}, University of Southern California}{Summer 2018--Summer 2019}\vspace{-0.1cm}
-\hspace{0.71cm} Advisor for research project: \textit{``Advanced pulsar noise modeling and cross-validation''}. \\
-\vspace{-0.1cm}
-\hspace{0.6cm} Resulted in a peer-reviewed publication in Monthly Notices of the Royal Astronomical Society. \vspace{0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Jacob Turner}, Oberlin College}{Summer 2018, 2016}\vspace{-0.1cm}
-\hspace{0.71cm} Co-mentor for summer research project: \textit{``Correcting for interstellar scattering \\ \vspace{-0.1cm}
-\hspace{0.6cm} delays in pulsar-timing''}. \vspace{0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Maya Fuller}, Caltech}{Summer 2016}\vspace{-0.1cm}
-\hspace{0.71cm} Advisor for summer research project: \textit{``Bayesian estimates of pulsar-timing \\ \vspace{-0.1cm}
-\hspace{0.6cm} array sensitivity to nanohertz gravitational-waves''}. \vspace{0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{Maya Fuller}, Caltech}{2016--2017} \vspace{-0.1cm}
-\hspace{0.71cm} Mentor for learning Bayesian statistical inference methods and scientific computing.
+\subsection{Undergraduate Student Research Mentoring}
+\renewcommand\labelitemi{\blucirc}
+\begin{itemize}[leftmargin=8mm]
+	\studentitem{Min Young Kim}{University of Washington Seattle}{2018-2019}{Bayesian Pulsar Timing}
+	\studentitem{Kyle Gersbach}{University of Washington Bothell}{2018-2020}{Teaching with the Pulsar Signal Simulator}
+	\studentitem{Jacob Hesse}{University of Washington Bothell}{2017-2018}{Efficiently Simulating NANOGrav Pulsars}
+	\studentitem{Amelia Henkel}{REU UT Rio Grande Valley}{Summer 2017}{Dispersing Simulated Baseband Pulsar Signals} 
+	\studentitem{Cassidy Wagner}{REU UT Rio Grande Valley}{Summer 2017}{Simulating Interstellar Medium Effects with Convolution} 
+       	 \studentitem{Chris Griffin}{Hendrix College}{2015-2016}{Conformal Diagrams of Crossing Spherical Shells in Schwarzschild Spacetime}
+      	\studentitem{Devon Roell}{Hendrix College}{2015-2016}{The Quantum Exchange Force and Gravity}
+	\studentitem{Eric Mullins}{Hendrix College}{2015-2016}{Localizing Gravitational Wave Sources with Noisy Null Signals} 
+	\studentitem{Connor Nelson}{Hendrix College}{2015-2016}{Localizing Multiple Gravitational Wave Sources with Null Signals} 
+        	\studentitem{Manuel Pichardo Marcano}{Utah State University}{2012-2013}{Multi-messenger Pulsar Timing Array Sources and Propagation Tests}
+\end{itemize}
 
 %\textbf{\textcolor{black}{Teaching assistant:}}
 \subsection{Teaching assistant}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ University of Cambridge, Part II Relativity ($3$rd-year undergraduate class)}{2011--2013}\vspace{-0.1cm}
-\hspace{0.71cm} \textit{Set and graded homework problems, mentored students, led recitation classes.}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ University of Cambridge, Part II Astronomy (computing coursework)}{2011}\vspace{-0.1cm}
-\hspace{0.71cm} \textit{Prepared materials for $3$rd-year undergraduate class.} \vspace{-0.1cm}
+\begin{itemize}[leftmargin=8mm]
+	\item Utah State University \hfill Fall 2009-Spring 2012
+            	\newline \textit{General Physics I:} Recitation Leader and Lab Instructor
+            	\newline \textit{General Physics II:} Recitation Leader and Lab Instructor
+       	 \item Oregon State University  \hfill Fall 2006-Spring 2009
+            	\newline \textit{Paradigms in Physics TA:} NSF funded higher division class reform project. 
+		\newline Facilitated group work and took part in curriculum meetings.
+           	\newline \textit{Physics for the Life Sciences:} Recitation Leader and Lab Instructor
+            	\newline \textit{General Physics II:} Lab Instructor
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 %   OUTREACH SECTION
@@ -427,70 +382,49 @@ $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.go
 \section{Leadership \& Professional Service}
 
 \subsection{Research leadership}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{\textbf{Member}}, NANOGrav Management Team}{Jan 2020--} \vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{\textbf{Member}}, International Pulsar Timing Array (IPTA) Steering Committee}{Jan 2020--} \vspace{-0.1cm}
+\cvitemwithcomment{}{\hspace{0.15cm}${\color{color1} \circ}\;$ \textit{\textbf{Co-chair}}, IPTA Gravitational Wave Analysis Group}{Jan 2019--} \vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{\textbf{Chair}}, NANOGrav Gravitational Wave Detection Working Group}{Jan 2018--} \vspace{-0.1cm}
+\cvitemwithcomment{}{\hspace{0.15cm}${\color{color1} \circ}\;$ \textit{\textbf{Co-chair}}, IGRAV Diversity, Equity \& Inclusion Working Group}{Jan 2019--} \vspace{-0.1cm}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ \textit{\textbf{Co-chair}}, IPTA Gravitational Wave Analysis Group}{Mar 2018--Dec 2019} \vspace{-0.1cm}
+\cvitemwithcomment{}{\hspace{0.15cm}${\color{color1} \circ}\;$ \textit{\textbf{Co-chair}}, IPTA Data Challenge Group}{Mar 2018--} \vspace{-0.1cm}
 
 \subsection{Reviewer for international journals}
-\begin{cvcolumns}
-\hspace{0.2cm}\cvcolumn{${\color{color1} \circ}\;$ {\color{black} The Astrophysical Journal}}{${\color{color1} \circ}\;$ {\color{black} MNRAS}}
-\hspace{0.2cm}\cvcolumn{${\color{color1} \circ}\;$ {\color{black} Physical Review D}}{${\color{color1} \circ}\;$ Physical Review Letters}
-\hspace{0.2cm}\cvcolumn{${\color{color1} \circ}\;$ {\color{black} Nature}}{}
-%\cvcolumn{${\color{color1} \circ}\;$ {\color{black} Nature}}{}
-\end{cvcolumns}
-\vspace{-5mm}
+\hspace{0.5mm} \blucirc The Astrophysical Journal  \hfill \blucirc Classical and Quantum Gravity \hfill \hspace{-0.2cm} \blucirc Physical Review D
 
-\subsection{Grant proposal reviewer}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ NASA Graduate Fellowship Program (NESSF, FINESST)}{} \vspace{-0.1cm}
+\hspace{0.5mm} \blucirc General Relativity \& Gravitation  \hfill \blucirc Monthly Notices of the Royal Astronomical Society
+
+\hspace{0.5mm} \blucirc Physical Review Letters  \hfill \blucirc European Journal of Physics
+
+%\vspace{-5mm}
 
 \subsection{Conference organization}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Organizer for AAS Special Session ``New Results from NANOGrav'' in Honolulu HI}{Jan 2020} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ SOC member for International Pulsar Timing Array meeting in Pune, India}{June 2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Organizer of NANOGrav Deep Learning workshop at Caltech}{May 2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Oorganizer of International Pulsar Timing Array workshop at Caltech}{Feb 2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Co-organizer of NANOGrav Detection workshop at Caltech}{Feb 2018} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ SOC member for International Pulsar Timing Array meeting in S\`evres, France}{Jul 2017} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Organizer of NANOGrav Astrophysics sprint week at West Virginia University}{Apr 2017} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Co-organizer of NANOGrav Detection workshop at Caltech}{Mar 2017} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Co-organizer of NANOGrav Hackathon at NCSA}{Oct 2017} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Chair of SOC for NANOGrav Fall meeting at University of Illinois Urbana Champaign}{Oct 2016} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ SOC and LOC member for NANOGrav Spring meeting at Caltech}{Mar 2016} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Co-organizer of NANOGrav student workshop at Caltech}{Mar 2016} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ SOC and LOC member for British Gravity meeting (BritGrav) at Cambridge, UK}{Mar 2014} \vspace{-0.1cm}
+	\begin{itemize}[leftmargin=8mm]
+	\confitem{Local Organizing Committee, Conferences for Undergraduate Women in Physics, UW Seattle}{2019}
+	\confitem{Local Organizing Committee Chair, NANOGrav Spring Meeting, UW Bothell}{2019}
+	\confitem{LISA Data Analysis Workshop, AAS233}{2019}
+	\confitem{Scientific Organizing Committee, LISA Symposium, Chicago}{2018}
+	\confitem{Scientific Organizing Committee, NANOGrav Spring Meeting, University of Virginia}{2018}
+	\confitem{Scientific Organizing Committee, NANOGrav Spring Student Workshop, University of Virginia}{2018}
+    	\confitem{Student Workshop Organizer, IPTA Meeting, Paris, France}{2017}
+	\confitem{Session Chair, AAS235}
+	\confitem{Session Chair, LISA Symposium 2018}
+	\end{itemize}
 
-\subsection{Seminar organization}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Caltech TAPIR Seminar Series \textit{(executive committee)}}{2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Caltech/JPL Association for Gravitational-Wave Research \textit{(executive committee)}}{2017--2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Caltech TAPIR and LIGO postdoctoral lunch seminar series}{2015--2016} \vspace{-0.1cm}
-
+%\subsection{Seminar organization}
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Caltech TAPIR Seminar Series \textit{(executive committee)}}{2019} \vspace{-0.1cm}
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Caltech/JPL Association for Gravitational-Wave Research \textit{(executive committee)}}{2017--2019} \vspace{-0.1cm}
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Caltech TAPIR and LIGO postdoctoral lunch seminar series}{2015--2016} \vspace{-0.1cm}
+\begin{comment}
 \subsection{Committees}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Vanderbilt chapter of the {\color{color1} \href{https://www.aps.org/programs/innovation/fund/idea.cfm}{APS Inclusion, Diversity, \& Equity Alliance}}}{Jul 2020--} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Undergraduate Program Committee member (Physics; Vanderbilt University)}{Fall 2019--} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Graduate Program Committee member (Astrophysics; Vanderbilt University)}{Fall 2019--} \vspace{-0.1cm}
+\cvitemwithcomment{}{\hspace{2mm}${\color{color1} \circ}\;$ NANOGrav chapter of the {\color{color1} \href{https://www.aps.org/programs/innovation/fund/idea.cfm}{APS Inclusion, Diversity, \& Equity Alliance}}}{Jul 2020--} \vspace{-0.1cm}
+\end{comment}
 
 \subsection{Code \& data sharing}
-%
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Code release for compact-binary population model interpolation}{2018} \vspace{-0.1cm}
-\hspace{0.71cm} Associated with Taylor \& Gerosa, arXiv:1806.08365 (2018) \\ \vspace{-0.1cm}
-\hspace{0.6cm} {\color{color1} \href{https://github.com/stevertaylor/gw_catalog_mining}{https://github.com/stevertaylor/gw$\_$catalog$\_$mining}}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Founding developer of open-source Python analysis package \texttt{enterprise$\_$extensions}}{2018--} \vspace{-0.1cm}
-\hspace{0.71cm} {\color{color1} \href{https://github.com/nanograv/enterprise_extensions}{https://github.com/nanograv/enterprise$\_$extensions}}
 
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Developer of open-source Python GW analysis software \texttt{enterprise}}{2017--} \vspace{-0.1cm}
+\cvitemwithcomment{}{\hspace{2mm}${\color{color1} \circ}\;$ Developer of open-source Python GW analysis software \texttt{enterprise}}{2017--} \vspace{-0.1cm}
 \hspace{0.71cm} {\color{color1} \href{https://github.com/nanograv/enterprise}{https://github.com/nanograv/enterprise}}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Release of code and library of simulated stochastic gravitational-wave spectra}{2017} \vspace{-0.1cm}
-\hspace{0.71cm} Associated with Taylor et al., PRL, 118, 181102 (2017) \\ \vspace{-0.1cm}
-\hspace{0.6cm} {\color{color1} \href{https://github.com/stevertaylor/gw_pta_emulator}{https://github.com/stevertaylor/gw$\_$pta$\_$emulator}}
-
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Developer of python open-source GW analysis software \textsc{NX01}}{2015--} \vspace{-0.1cm}
-\hspace{0.71cm} {\color{color1} \href{https://github.com/stevertaylor/NX01}{https://github.com/stevertaylor/NX01}}
 
 
 \subsection{Professional affiliations}
@@ -522,48 +456,51 @@ $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.go
 \section{Outreach, Diversity, \& Media Engagement}
 
 \subsection{Outreach}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Published research article in children's science journal {\color{color1} \href{https://kids.frontiersin.org/}{``Frontiers For Young Minds''}}}{2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Featured gravitational-wave expert at NASA's {\color{color1} \href{https://www.jpl.nasa.gov/news/news.php?feature=6362}{``Ticket to Explore JPL''}} event}{2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{http://nanograv.org/outreach/spot/}{Space Public Outreach Team}} talk at Hamilton Elementary School's SMART night event}{2019} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Featured gravitational-wave expert at NASA's {\color{color1} \href{https://www.jpl.nasa.gov/news/news.php?feature=6362}{``Ticket to Explore JPL''}} event}{2018} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Featured speaker at Los Angeles {\color{color1} \href{https://www.flickr.com/photos/143414768@N07/sets/72157696776683482/with/43872599802/}{``Astronomy On Tap''}} evening}{2018} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Astronomy expert at Caltech's {\color{color1} \href{http://www.caltech.edu/content/solar-eclipse-viewing-party}{``Solar Eclipse Viewing Party''}}}{2017} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Featured speaker at West Virginia University's {\color{color1} \href{http://einstein.wvu.edu/featurettes/einstein-lectures}{``Celebrating Einstein''}} public-lecture series}{2017} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Featured gravitational-wave expert at NASA's {\color{color1} \href{https://www.jpl.nasa.gov/news/news.php?feature=6362}{``Ticket to Explore JPL''}} event}{2016} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Presentation to prospective students (Institute of Astronomy graduate interviews)}{2012--2014} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Outreach talk at Institute of Astronomy public-observing evening: ``The Space Race''}{2012} \vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ Interactive presentation at Cambridge's Institute of Astronomy Open Day}{2011, 2013} \vspace{-0.1cm}
+\renewcommand\labelenumi{\bfseries\theenumi .}
+\small
+\outtalkitem{Science Wednesday Panel Discussion}{King's Live Music}{The Science of Time Travel}{2015}
+\outtalkitem{Science Fiction Club Talk}{Hendrix College}{Black Holes and Wormholes}{2015}
+\outtalkitem{Science Unwrapped (500 person public lecture)}{Utah State University}{Explore to Conserve}{2013}
+\outtalkitem{Conservation Club Talk}{Weber State}{A Scientist's Role in Conservation}{2012}
+\outtalkitem{Science Unwrapped}{Swaner Ecocenter}{A Scientist's Role in Modern Exploration}{2012}
+\outtalkitem{Cache Valley Stargazers Talk}{Logan, UT}{Black Holes: Ninjas of the Night Sky}{2009}
 
-\subsection{Diversity \& equity}
+\subsection{Diversity \& Equity}
 \begin{itemize}[leftmargin=8mm]
-\item Led the successful Vanderbilt University proposal to join the {\color{color1} \href{https://www.aps.org/programs/innovation/fund/idea.cfm}{APS Inclusion, Diversity, \& Equity Alliance}}
-\item As an SOC member for the Spring 2016 NANOGrav collaboration meeting at Caltech, I coordinated with the Caltech Center for Diversity on a seminar to promote allyship, inclusiveness, and equity within the NANOGrav collaboration.
+\item Founding Co-chair, Diversity Equity \& Inclusion Working Group,  {\color{color1} \href{https://indico.ego-gw.it/event/29/sessions/53/attachments/420/685/International_Gravitational-Wave_Outreach_Group_Meeting__Briefing_Document.pdf}{International Gravitational Outreach Group}}
+\item Member of the NANOGrav chapter of the {\color{color1} \href{https://www.aps.org/programs/innovation/fund/idea.cfm}{APS Inclusion, Diversity, \& Equity Alliance}}
+\item Local Organizing Committee, UW, Seattle (2019) {\color{color1} \href{https://www.aps.org/programs/women/cuwip/cuwiphistory.cfm}{Conferences for Undergraduate Women in Physics}}
+%\item As an LOC member for the Spring 2018 NANOGrav collaboration meeting at UW Bothell, I coordinated with the Bothell Center for Diversity on a seminar to promote allyship, inclusiveness, and equity within the NANOGrav collaboration.
 \end{itemize}
 
 \subsection{Press releases}
 
 \cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://news.vanderbilt.edu/2020/06/30/to-find-giant-black-holes-start-with-jupiter/}{``\textit{To find giant black holes, start with Jupiter}''}}}{Jun 2020} \vspace{-0.1cm}
-\hspace{0.71cm} Lead-team research (Vanderbilt press release)  \\
+\hspace{0.71cm} Collaboration research (Vanderbilt press release)  \\
 \cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://greenbankobservatory.org/to-find-giant-black-holes-start-with-jupiter/}{``\textit{To find giant black holes, start with Jupiter}''}}}{Jun 2020} \vspace{-0.1cm}
-\hspace{0.71cm} Lead-team research (Green Bank Observatory press release)  \\
+\hspace{0.71cm} Collaboration research (Green Bank Observatory press release)  \\
 \cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://www.jpl.nasa.gov/news/news.php?feature=6998}{``\textit{Listening for Gravitational Waves Using Pulsars}''}}}{Nov 2017} \vspace{-0.1cm}
-\hspace{0.71cm} Short-author collaboration research (JPL press release)  \\
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://www.simonsfoundation.org/2017/11/13/gravitational-waves-supermassive-black-hole-merger/}{``\textit{Gravitational Waves from Merging Supermassive Black Holes}}}}{Nov 2017} \vspace{-0.1cm}
-\hspace{0.71cm} {\color{color1} \href{https://www.simonsfoundation.org/2017/11/13/gravitational-waves-supermassive-black-hole-merger/}{\textit{Will Be Spotted within 10 Years, New Study Predicts}''}} \\ \vspace{-0.1cm}
-\hspace{0.55 cm} Short-author collaboration research (Simons Foundation press release) \vspace{0.1cm}\\
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://public.nrao.edu/news/pressreleases/2016-nanograv-sbr}{``\textit{Gravitational Wave Search Provides Insights into Galaxy Evolution and Mergers}''}}}{Apr 2016} %\vspace{-0.1cm}
-\hspace{0.71cm} Collaboration research  (NRAO press release) \\
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{http://www.jpl.nasa.gov/news/news.php?feature=5505}{``\textit{Pulsar Web Could Detect Low-Frequency Gravitational Waves}''}}}{Feb 2016} \vspace{-0.1cm}
-\hspace{0.71cm} First-author research (JPL press release) \vspace{-0.1cm}
+\hspace{0.71cm} Collaboration research (JPL press release)  \\
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://www.simonsfoundation.org/2017/11/13/gravitational-waves-supermassive-black-hole-merger/}{``\textit{Gravitational Waves from Merging Supermassive Black Holes}}}}{Nov 2017} \vspace{-0.1cm}
+%\hspace{0.71cm} {\color{color1} \href{https://www.simonsfoundation.org/2017/11/13/gravitational-waves-supermassive-black-hole-merger/}{\textit{Will Be Spotted within 10 Years, New Study Predicts}''}} \\ \vspace{-0.1cm}
+%\hspace{0.55 cm} Collaboration collaboration research (Simons Foundation press release) \vspace{0.1cm}\\
+\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ {\color{color1} \href{https://public.nrao.edu/news/pressreleases/2016-nanograv-sbr}{``\textit{Gravitational Wave Search Provides Insights into Galaxy Evolution and Mergers}''}}}{Apr 2016} \vspace{-0.1cm}
+\hspace{0.71cm} Collaboration research  (NRAO press release) 
 
+\begin{comment}
 \subsection{Media coverage}
 \begin{itemize}[leftmargin=8mm]
+\item Science Interview for National Geographic November 2009
+        			\newline Interviewed for \emph{Phenomena: A science salon hosted by National Geographic}
+		about the physics in the movie ``Men Who Stare at Goats''.
+
+
 \item Research profiled in the popular-science book {\color{color1} \href{https://books.google.com/books/about/Ripples_in_Spacetime.html?id=YicuDwAAQBAJ&hl=en}{``Ripples in Spacetime: Einstein, Gravitational Waves, and the Future of Astronomy''}} by Govert Schilling (forward by Martin Rees), Harvard University Press (2017)
 \item Interviewed and quoted by \textit{Science} magazine: {\color{color1} \href{http://science.sciencemag.org/content/351/6278/1124}{``In Search of Spacetime Megawaves''}} by Daniel Clery, Science  11 Mar 2016: Vol. 351, Issue 6278, pp. 1124-1125
 \item Quoted, with research featured in {\color{color1} \href{https://www.syfy.com/syfywire/pulsars-black-holes-spacetime-center-of-the-solar-system}{\textit{SyFy}}} (article by Phil Plait), {\color{color1} \href{http://gizmodo.com/we-could-find-even-more-gravitational-waves-soon-with-p-1761021828}{\textit{Gizmodo}}}, {\color{color1} \href{https://www.engadget.com/2016/02/25/pulsars-gravitational-waves-black-holes/}{\textit{Engadget}}}, {\color{color1} \href{http://phys.org/news/2016-02-pulsar-web-low-frequency-gravitational.html}{\textit{Phys.org}}},  {\color{color1} \href{http://www.astronomy.com/news/2016/02/pulsar-web-could-detect-gravitational-waves}{\textit{Astronomy magazine}}}, {\color{color1} \href{http://www.universetoday.com/127562/the-future-of-gravitational-wave-astronomy-enhanced-ligo-pulsar-webs-space-interferometers-and-everything/}{\textit{Universe Today}}}
 \item Collaboration research featured in {\color{color1} \href{https://www.sciencedaily.com/releases/2016/04/160405122609.htm}{\textit{Science Daily}}}, {\color{color1} \href{https://astronomynow.com/2016/04/06/gravitational-wave-search-provides-insights-into-galaxy-mergers/}{\textit{Astronomy Now} (online)}}
 \end{itemize}
-
+\end{comment}
 %----------------------------------------------------------------------------------------
 %   COMPUTER SKILLS SECTION
 %----------------------------------------------------------------------------------------
@@ -653,126 +590,51 @@ $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.go
 %%    }
 %%    \end{cvcolumns}
 %
-\pagebreak
+%\pagebreak
 
-%----------------------------------------------------------------------------------------
-%  FULL PUBLICATION LIST
-%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %  FULL PRESENTATIONS
 %----------------------------------------------------------------------------------------
-\pagebreak
+%\pagebreak
 \section{Full Presentation List}
 %\vspace{-0.3cm}
-\subsection{Invited talks} \vspace{-0.6cm}
+\subsection{Invited talks} %\vspace{-0.6cm}
+\renewcommand\labelenumi{\bfseries\theenumi .}
 
-\cvitem{}{\small
-\hspace{-2cm}\begin{longtable}{rp{0.3cm}p{15.8cm}}
-\textbf{46.} & & \textit{Charting The Next Frontier Of Gravitational Wave Astronomy With Pulsar Timing Arrays} \\
-&& Astrophysical and Cosmological Relativity Seminar (via Zoom), Albert Einstein Institute, Potsdam, Germany, \textbf{Jul 2020} \vspace{0.09cm}\\
-\textbf{45.} & & \textit{Pulsar Timing Arrays: The Next Winow On The Warped Universe} \\
-&& NSF QuarkNet Seminar (via Zoom), Vanderbilt University, Nashville TN, USA, \textbf{Jun 2020} \vspace{0.09cm}\\
-\textbf{44.} & & \textit{Charting The Next Frontier Of Gravitational Wave Astronomy With Pulsar Timing Arrays} \\
-&& Deutsche Forschungsgemeinshaft Research Training Group ``Models Of Gravity'' Colloquium (via Zoom), University of Bielefeld, Bielefeld, Germany, \textbf{Jun 2020} \vspace{0.09cm}\\
-\textbf{43.} & & \textit{Charting The Next Frontier Of Nanohertz Gravitational Wave Astronomy With The International Pulsar Timing Array} \\
-&& Invited seminar, l'Observatoire de Paris, Paris, France, \textbf{Dec 2019} \vspace{0.09cm}\\
-\textbf{42.} & & \textit{Pulsar Timing Arrays: The Next Frontier of Gravitational Wave Astronomy} \\
-&& Department of Physics Colloquium, Franklin \& Marshall College, Lancaster PA, USA, \textbf{Nov 2019} \vspace{0.09cm}\\
-\textbf{41.} & & \textit{Pulsar Timing Arrays: The Next Frontier of Gravitational Wave Astronomy} \\
-&& Astrophysics Division Seminar, NASA Goddard Space Flight Center, MD, USA, \textbf{Nov 2019} \vspace{0.09cm}\\
-\textbf{40.} & & \textit{Supermassive Black Hole Demographics In The Era Of Multimessenger Pulsar Timing Array Detection} \\
-&& Invited talk, SESAPS 2019 (South Eastern Section of the APS), Wilmington NC, USA, \textbf{Nov 2019} \vspace{0.09cm}\\
-\textbf{39.} & & \textit{Pulsar Timing Arrays: The Next Frontier of Gravitational Wave Astronomy} \\
-&& The Josephine Lawrence Hopkins Foundation Colloquium, Cornell University, Ithaca NY, USA, \textbf{Oct 2019} \vspace{0.09cm}\\
-\textbf{38.} & & \textit{Pulsar Timing Arrays: The Next Frontier Of Gravitational Wave Astronomy} \\
-&& Plenary presentation, 22nd International Conference on General Relativity and Gravitation (GR22) \& 13th Edoardo Amaldi Conference on Gravitational Waves (Amaldi13), Valencia, Spain, \textbf{Jul 2019} \vspace{0.09cm}\\
-\textbf{37.} & & \textit{Solar System Ephemeris Noise} \\
-&& OzGrav Pulsar Timing Workshop, Swinburne University of Technology, Melbourne, Australia, \textbf{May 2019} \vspace{0.09cm}\\
-\textbf{36.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Department colloquium, Institute of Astronomy, University of Cambridge, Cambridge, UK, \textbf{Mar 2019} \vspace{0.09cm}\\
-\textbf{35.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& CGCA Seminar, University of Wisconsin--Milwaukee, Milwaukee WI, USA, \textbf{Mar 2019} \vspace{0.09cm}\\
-\textbf{34.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Invited seminar, Flatiron Center for Computational Astrophysics, New York NY, USA, \textbf{Feb 2019} \vspace{0.09cm}\\
-\textbf{33.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Department of Physics \& Astronomy colloquium, University of Mississippi, Oxford MS, USA, \textbf{Feb 2019} \vspace{0.09cm}\\
-\textbf{32.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Department of Physics \& Astronomy colloquium, Vanderbilt University, Nashville TN, USA, \textbf{Jan 2019} \vspace{0.09cm}\\
-\textbf{31.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Department of Physics \& Astronomy colloquium, Carnegie Mellon University, Pittsburgh PA, USA, \textbf{Jan 2019} \vspace{0.09cm}\\
-\textbf{30.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Department of Physics \& Astronomy colloquium, University of Minnesota, Minneapolis MN, USA, \textbf{Jan 2019} \vspace{0.09cm}\\
-\textbf{29.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Department of Physics colloquium, University of Virginia, Charlottesville VA, USA, \textbf{Jan 2019} \vspace{0.09cm}\\
-\textbf{28.} & & \textit{Supermassive Black-hole Demographics In The Era of Nanohertz Multi-messenger Astronomy} \\
-&& American Astronomical Society, Seattle WA, USA, \textbf{Jan 2019} \vspace{0.09cm}\\
-\textbf{27.} & & \textit{Compact Object Genealogy Across The Gravitational Wave Spectrum} \\
-&& UVa+NRAO WUNA Lunch Talk, University of Virginia, Charlottesville VA, USA, \textbf{Oct 2018} \vspace{0.09cm}\\
-\textbf{26.} & & \textit{Frontiers Of Pan-Spectral Gravitational-Wave Astrophysics} \\
-&& Invited departmental seminar, Radboud University, Nijmegen, Netherlands, \textbf{Oct 2018} \vspace{0.09cm}\\
-\textbf{25.} & & \textit{Compact Object Genealogy Across The Gravitational Wave Spectrum} \\
-&& CGCA Seminar, University of Wisconsin--Milwaukee, Milwaukee WI, USA, \textbf{Sep 2018} \vspace{0.09cm}\\
-\textbf{24.} & & \textit{Compact Object Genealogy Across The Gravitational Wave Spectrum} \\
-&& USC Colloquium, University of Southern California, Los Angeles CA, USA, \textbf{Sep 2018} \vspace{0.09cm}\\
-\textbf{23.} & & \textit{Compact Object Genealogy Across The Gravitational Wave Spectrum} \\
-&& TAPIR Seminar, California Institute of Technology, Pasadena CA, USA, \textbf{Sep 2018} \vspace{0.09cm}\\
-\textbf{22.} & & \textit{Nanohertz-frequency gravitational-wave astrophysics with pulsar-timing arrays} \\
-&& COSPAR 2018, Pasadena CA, USA, \textbf{Jul 2018} \vspace{0.09cm}\\
-\textbf{21.} & & \textit{Pulsar Timing Arrays: new advances toward detecting low-frequency gravitational waves} \\
-&& American Physical Society, Columbus OH, USA, \textbf{Apr 2018} \vspace{0.09cm}\\
-\textbf{20.} & & \textit{Beyond black holes with pulsar-timing arrays} \\
-&& University of Virginia colloquium, Charlottesville VA, USA, \textbf{Mar 2018} \vspace{0.09cm}\\
-\textbf{19.} & & \textit{Non-BH science with pulsar-timing arrays} \\
-&& Black Holes Across The GW Spectrum, International Institute of Physics, Natal, Brazil, \textbf{Aug 2017} \vspace{0.09cm}\\
-\textbf{18.} & & \textit{Bayesian inference for pulsar-timing arrays} \\
-&& Black Holes Across The GW Spectrum, International Institute of Physics, Natal, Brazil, \textbf{Aug 2017} \vspace{0.09cm}\\
-\textbf{17.} & & \textit{Supermassive black-hole binary astrophysics with pulsar-timing arrays} \\
-&& Black Holes Across The GW Spectrum, International Institute of Physics, Natal, Brazil, \textbf{Aug 2017} \vspace{0.09cm}\\
-\textbf{16.} & & \textit{Probing the nanohertz GW landscape with PTAs: a status report} \\
-&& Gravitational Wave Physics \& Astronomy Workshop (GWPAW), Annecy, France, \textbf{May 2017} \vspace{0.09cm}\\
-\textbf{15.} & & \textit{GW constraints on disc migration via pulsar timing} \\
-&& The disc migration issue (Kavli workshop), Institute of Astronomy, Cambridge, UK, \textbf{May 2017} \vspace{0.09cm}\\
-\textbf{14.} & & \textit{Constraining the physics of the final parsec of supermassive black-hole binary evolution} \\
-&& Astronomy Colloquium, Swinburne University of Technology, Melbourne, Australia, \textbf{Feb 2017} \vspace{0.09cm}\\
-\textbf{13.} & & \textit{Astrophysical inference of supermassive black-hole binaries with pulsar-timing arrays} \\
-&& Leonard E. Parker Center seminar, University of Wisconsin--Milwaukee, Milwaukee WI, USA, \textbf{Oct 2016} \vspace{0.09cm}\\
-\textbf{12.} & & \textit{Astrophysical inference of supermassive black-hole binaries with pulsar-timing arrays} \\
-&& CIERA seminar, Northwestern University, Evanston IL, USA, \textbf{Oct 2016} \vspace{0.09cm}\\
-\textbf{11.} & & \textit{New data-analysis approaches for gravitational-wave searches with pulsar-timing arrays} \\
-&& Montana State University seminar, Bozeman MT, USA, \textbf{Oct 2016} \vspace{0.09cm}\\
-\textbf{10.} & & \textit{New horizons in gravitational-wave astronomy with pulsar-timing arrays} \\
-&& Armagh Observatory seminar, Armagh, UK, \textbf{Jul 2016} \vspace{0.09cm}\\
-\textbf{9.} & & \textit{Probing the final-parsec problem with pulsar-timing arrays} \\
-&& Anton Pannekoek Institutt seminar, University of Amsterdam, Amsterdam, Netherlands, \textbf{Jul 2016} \vspace{0.09cm}\\
-\textbf{8.} & & \textit{Probing the final-parsec problem with pulsar-timing arrays} \\
-&& Radboud University astrophysics seminar, Radboud, Netherlands, \textbf{Jul 2016} \vspace{0.09cm}\\
-\textbf{7.} & & \textit{Gravitational-wave data-analysis techniques for pulsar-timing arrays} \\
-&& IPTA conference, Stellenbosch, South Africa, \textbf{Jun 2016} \vspace{0.09cm}\\
-\textbf{6.} & & \textit{Sources of nanohertz gravitational-waves for pulsar-timing array searches} \\
-&& NANOGrav student workshop, Caltech, Pasadena CA, USA, \textbf{Mar 2016} \vspace{0.09cm}\\
-\textbf{5.} & & \textit{Prospects for near future detection and astrophysical inference with PTAs} \\
-&& Gravitational-wave group seminar, University of Birmingham, UK, \textbf{Dec 2015} \vspace{0.09cm}\\
-\textbf{4.} & & \textit{Prospects for near future detection and astrophysical inference with PTAs} \\
-&& Statistics group seminar (School of Mathematics), University of Edinburgh, UK, \textbf{Dec 2015} \vspace{0.09cm}\\
-\textbf{3.} & & \textit{Prospects for near future detection and astrophysical inference with PTAs} \\
-&& CaJAGWR seminar, California Institute of Technology, Pasadena, USA, \textbf{Dec 2015} \vspace{0.09cm}\\
-\textbf{2.} & & \textit{Searching For Anisotropic Gravitational-wave Backgrounds Using Pulsar Timing Arrays} \\
-&& Albert Einstein Institute (AEI) GW seminar, Hanover, Germany, \textbf{May 2013} \vspace{0.09cm}\\
-\textbf{1.} & & \textit{Weighing the evidence for a gravitational-wave background} \\
-&& Gravitational-wave group seminar, University of Birmingham, UK, \textbf{Dec 2012}
-\end{longtable}
-}
+\begin{etaremune}[leftmargin=8mm]
+\small
+\invtalkitem{Gravitational Wave Astronomy Northwest, GW Updates}{June, 2020}{Update on the search for gravitational waves in NANOGrav and IPTA datasets}
+\invtalkitem{LIGO Hanford Seminar}{March, 2020}{The Search for Lumbering Giants}
+\invtalkitem{American Astronomical Society 235th Meeting, NANOGrav Special Session}{January, 2020}{Highlights from the search for gravitational waves in NANOGrav datasets}
+\invtalkitem{Montana State University, Physics Colloquium}{November, 2019}{Exploring the discovery space of pulsar timing arrays with realistic sensitivity curves}
+\invtalkitem{Whitman College, Physics Colloquium}{October, 2019}{The Search for Lumbering Giants:\\ Observing the Nanohertz Gravitational-Wave Sky with Pulsar Timing Arrays}
+\invtalkitem{22nd International Conference on General Relativity and Gravitation (GR22)\\ \& 13th Edoardo Amaldi Conference on Gravitational Waves (Amaldi13)}{July, 2019}{Education and Public Outreach Efforts by Pulsar Timing Array Collaborations}
+\invtalkitem{Northwest APS Meeting}{May, 2019}{The Search for Lumbering Giants:\\Observing the Nanohertz Gravitational-Wave Sky with Pulsar Timing Arrays}
+\invtalkitem{Gravitational Wave Physics and Astronomy Workshop}{December, 2019}{Current Status of Pulsar Timing Array Gravitational Wave Astronomy}
+\invtalkitem{University of Washington Bothell Physical Sciences Division Seminar}{December, 2018}{Observing the Nanohertz Gravitational-Wave Sky with Pulsar Timing Arrays}
+\invtalkitem{University of Washington Seattle AstroLunch Talk}{February, 2018}{A Galactic Scale Gravitational Wave Detector: The NANOGrav 11yr Limits}
 
+\invtalkitem{University of Washington Bothell Physical Sciences Division Seminar Seminar}{November, 2017}{The NANOGrav Pulsar Timing Array:\\Using simulations to characterize our galactic gravitational wave detector.}
+\invtalkitem{University of Texas Rio Grande Valley Arecibo Remote Command Center Meeting}{February, 2017}{Simulating Pulsar Signals for Noise Characterization of PTAs}
+\invtalkitem{University of Arkansas Physics Colloquium}{February, 2016}{Gravitational Wave Astronomy in the 2nd Century of GR}
+\invtalkitem{Western Washington University Physics Colloquium}{May, 2015}{A New Window into the Cosmos}
+\invtalkitem{Brigham Young University Physics Theory Seminar}{February, 2015}{Gravitational Gauge Theory and the Dark Cosmological Constituents}
+\invtalkitem{Georgia Tech Center for Relativistic Astrophysics, Departmental Colloquium}{March, 2013}{Biconformal Space \& Testing Alternative Theories of Gravity using Multi-Messenger Astronomy}
+\invtalkitem{Utah State University Physics Colloquium}{February, 2013}{Best Practices for the Online Classroom}
+\invtalkitem{Utah State University Physics Colloquium}{September 2010}{Curved Phase Space from conformal symmetry}
+\invtalkitem{Oregon State Physics Colloquium}{March 2009}{Spherical Shells in a Schwarzschild Background}
+
+\end{etaremune}
 %\vspace{-0.6cm}
 \subsection{Contributed presentations} %\vspace{-0.6cm}
 
 \renewcommand\labelenumi{\bfseries\theenumi .}
 \begin{etaremune}[leftmargin=8mm]
 \small
+\talkitem{Model Dependence of Bayesian Gravitational Wave Background Statistics in PTAs}{International Pulsar Timing Array Meeting}{Virtual, September, 2020}
 \talkitem{Predicting NANOGrav's Sensitivity into the future with \texttt{hasasia}}{American Physical Society April Meeting}{Virtual, April, 2020}
 \talkitem{Exploring the Nanohertz Gravitational-Wave Discovery Space with Sensitivity Curves and \texttt{hasasia}}{American Astronomical Society Meeting}{Honolulu, HI, January, 2020}
-\talkitem{The NANOGrav Pulsar Signal Simulator}{American Astronomical Society Meeting}{Honolulu, HI, January, 2020}
 \talkitem{Gravitational Wave Astronomy with the NANOGrav Pulsar Timing Array}{Texas Symposium on Relativistic Astrophysics}{Portsmouth, UK, December, 2019}
 \talkitem{Modeling Astrophysical Noise Sources in PTAs}{Fall NANOGrav Meeting}{Ithaca, NY, October, 2019}
 \talkitem{Realistic Pulsar Timing Array Sensitivity Curves}{GR22/Amaldi13}{Valencia, Spain, July, 2019}
@@ -796,67 +658,90 @@ $\bullet$ \textbf{Metrics} available at {\color{color1} \href{https://scholar.go
 \talkitem{Null Stream Approach for finding Sky Position of Pulsar Timing Array sources}{American Physical Society April Meeting}{Salt Lake City, Utah, April, 2016}
 \talkitem{A Cartan Geometry approach to the AdS/CFT}{Midwest Gravity Meeting}{Evanston, Illinois, October, 2015}
 \talkitem{Tracing the AdS/CFT Degrees of Freedom using Cartan Geometry}{American Physical Society April Meeting}{Baltimore, Maryland, April 2015}
-          \item \textbf{American Astronomical Society 225th Meeting} Seattle, Washington, January 2015
-        		\newline \emph{``Pulsar Timing Array Source Location Using the Null Signal Approach''} (Poster)
-		\newline Jeffrey S. Hazboun and Shane L. Larson
-         \item \textbf{Midwest Gravity Meeting} Rochester, MI, November, 2014
-        		\newline \emph{``Conformal gravity, dark matter and time''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{APS Four Corners Meeting} Orem, Utah, October 2014
-        		\newline \emph{``Conformal gravity, dark matter and time''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{Midwest Gravity Meeting} Milwaukee, Wisconsin, October 2013
-        		\newline \emph{``Time from the conformal symmetries of a Euclidean space''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{Loops 13: International Conference on Quantum Gravity} Waterloo, Canada, July 2013
-        		\newline \emph{``Lorentzian geometry from the conformal symmetries of a Euclidean space''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{GR20/AMALDI$\;$10} Warsaw, Poland, July 2013
-        		\newline \emph{``Testing Bimetric and Massive Gravity Theories using Multi-Messenger Astronomy''}
-		\newline Jeffrey S. Hazboun and Shane L. Larson
-        \item \textbf{53rd Cracow School of Theoretical Physics} Zakopane, Poland, June 2013
-        		\newline \emph{``Lorentzian spin connection from the conformal symmetries of a Euclidean space''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{Pacific Coast Gravity Meeting} Davis, California, March 2013
-        		\newline \emph{``General relativity in signature changing phase space''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{Pacific Coast Gravity Meeting} Santa Barbara, California, March 2012
-        		\newline \emph{``General relativity in phase space with a natural notion of time''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-        \item \textbf{Loops 11: International Conference on Quantum Gravity} Madrid, Spain, May 2011
-        		\newline \emph{``A systematic construction of curved phase space: A gravitational gauge theory with symplectic form''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-	\item \textbf{Intermountain Graduate Research Symposium} Logan, Utah, March 2010
-            	\newline \emph{``Quantum gravity in relativistic phase space''}
-		\newline Jeffrey S. Hazboun and James T. Wheeler
-       	\item \textbf{12th Marcel Grossman Gravity Meeting} Paris, France, July 2009
-            	\newline \emph{``Multiple Spherical Shells in Schwarzschild Spacetime''} (MS Work)
-		\newline Jeffrey S. Hazboun and Tevian Dray
-        \item \textbf{Pacific Coast Gravity Meeting} Eugene, Oregon, March 2009
-            	\newline \emph{``Single Spherical Shells in Schwarzschild Spacetime''} (MS Work)
-		\newline Jeffrey S. Hazboun and Tevian Dray
-	\item \textbf{TEXAS Symposium on Relativistic Astrophysics} Vancouver, Canada, December 2008
-            	\newline \emph{``Multiple Spherical Shells in Schwarzschild Spacetime''} (Poster, MS Work)
-		\newline Jeffrey S. Hazboun and Tevian Dray
+\talkitem{Conformal gravity, dark matter and time}{Midwest Gravity Meeting}{Rochester, MI, November, 2014}
+\talkitem{Conformal gravity, dark matter and time}{APS Four Corners Meeting}{Orem, Utah, October 2014}
+\talkitem{Time from the conformal symmetries of a Euclidean space}{Midwest Gravity Meeting} Milwaukee, Wisconsin, October 2013
+\talkitem{Lorentzian geometry from the conformal symmetries of a Euclidean space}{Loops 13: International Conference on Quantum Gravity}{Waterloo, Canada, July 2013}
+\talkitem{Testing Bimetric and Massive Gravity Theories using Multi-Messenger Astronomy}{GR20/AMALDI$\;$10}{Warsaw, Poland, July 2013}
+\talkitem{Lorentzian spin connection from the conformal symmetries of a Euclidean space}{53rd Cracow School of Theoretical Physics}{Zakopane, Poland, June 2013}
+\talkitem{General relativity in signature changing phase space}{Pacific Coast Gravity Meeting}{Davis, California, March 2013}
+\talkitem{General relativity in phase space with a natural notion of time}{Pacific Coast Gravity Meeting}{Santa Barbara, California, March 2012}
+\talkitem{A systematic construction of curved phase space: A gravitational gauge theory with symplectic form}{Loops 11: International Conference on Quantum Gravity}{Madrid, Spain, May 2011}
+\talkitem{Quantum gravity in relativistic phase space}{Intermountain Graduate Research Symposium}{Logan, Utah, March 2010}
+\talkitem{Multiple Spherical Shells in Schwarzschild Spacetime}{12th Marcel Grossman Gravity Meeting}{Paris, France, July 2009}
+\talkitem{Single Spherical Shells in Schwarzschild Spacetime}{Pacific Coast Gravity Meeting}{Eugene, Oregon, March 2009}
+
 
 \end{etaremune}
 %\vspace{-0.6cm}
-\subsection{Posters}\vspace{-0.6cm}
+\subsection{Posters}
+\begin{etaremune}[leftmargin=8mm]
+\small
+\talkitem{The NANOGrav Pulsar Signal Simulator}{American Astronomical Society Meeting}{Honolulu, HI, January, 2020}
+\talkitem{Pulsar Timing Array Source Location Using the Null Signal Approach}{American Astronomical Society 225th Meeting}{Seattle, Washington, January 2015}
+\talkitem{Multiple Spherical Shells in Schwarzschild Spacetime}{TEXAS Symposium on Relativistic Astrophysics}{Vancouver, Canada, December 2008}
+\end{etaremune}
 
-\cvitem{}{\small
-\hspace{-2cm}\begin{longtable}{rp{0.3cm}p{15.8cm}}
-\textbf{5.} & & \textit{The NANOGrav 11-year Dataset: Pulsar Timing Constraints On The Stochastic GW Background} \\
-&& American Astronomical Society Meeting, Seattle WA, \textbf{Jan 2019} \vspace{0.09cm}\\
-\textbf{4.} & & \textit{The Black Hole Zoo: Populations, Pathways, \& Origins} \\
-&& Gravitational Wave Physics \& Astronomy Meeting, Washington DC, \textbf{Dec 2018} \vspace{0.09cm}\\
-\textbf{3.} & & \textit{Galactic environment effects on gravitational wave signals in pulsar timing arrays} \\
-&& Postdoc Research Day, NASA Jet Propulsion Laboratory, \textbf{Aug 2015} \vspace{0.09cm}\\
-\textbf{2.} & & \textit{Cosmology without EM counterparts: Standard sirens in the advanced era and beyond} \\
-&& Rattle and Shine, KITP Santa Barbara, USA, \textbf{Aug 2012} \vspace{0.09cm}\\
-\textbf{1.} & & \textit{Cosmology using advanced gravitational-wave detectors alone} \\
-&& Graduate Student Conference 2011, Cavendish Laboratory, University of Cambridge, UK, \textbf{Dec 2011} \vspace{0.09cm}\\
-\end{longtable}
-}
+\section{References}
 
+%\subsection{Research}
+	\renewcommand\labelitemi{\blucirc}
+	\begin{itemize}[leftmargin=8mm]
+	\setlength\itemsep{0.05mm}
+	\item \textbf{Dr. Xavier Siemens} \emph{NANOGrav PI/ Collaborator}
+        		\newline Professor of Physics
+		\newline Oregon State University, Corvallis, OR 97331
+		\newline \emph{Phone:} 541-737-7512 \qquad \emph{email:} \url{xavier.siemens@oregonstate.edu}
+		\newline
+	\item \textbf{Dr. Stephen Taylor} \emph{NANOGrav Detection Working Group Co-chair/ Collaborator}
+       		\newline Professor of Physics
+		\newline Vanderbilt University, Nashville, TN 37235
+		\newline \emph{Phone:} 615-322-7311 \qquad email:\url{stephen.r.taylor@vanderbilt.edu}
+		\newline
+	\item \textbf{Dr. Joey Key} \emph{Post Doctoral Advisor}
+       		\newline Professor of Physics
+		\newline University of Washington Bothell, Bothell, WA 98011
+		\newline \emph{Phone:} 425-352-5497 \qquad email:\url{joey.key@uw.edu}
+		\newline	
+	\item \textbf{Dr. Joseph Romano} %\emph{Post Doctoral Advisor}
+       		\newline Professor of Physics
+		\newline Texas Tech University, Lubbock, TX 79409
+		\newline \emph{Phone:} 806-834-6522 \qquad email:\url{joseph.d.romano@ttu.edu}
+		\newline
+	\item \textbf{Dr. James T. Wheeler} \emph{PhD Advisor, Utah State University}
+        		\newline Associate Professor of Physics
+		\newline Utah State University, Logan, UT 84321
+		\newline \emph{Phone:} 435-770-7601 \qquad email:\url{jim.wheeler@usu.edu}
+		\newline	
+	\item \textbf{Dr. Tevian Dray} \emph{MS Advisor, Oregon State University}
+     		\newline Professor of Mathematics
+		\newline Oregon State University, Corvallis, OR 97331
+		\newline \emph{Phone:} 	541-737-5159 \qquad \emph{email:} \url{tevian@math.oregonstate.edu}	
+		\newline	
+	\item \textbf{Dr. Jan Sojka}
+        		\newline Department Chair \& Professor of Physics
+		\newline Utah State University, Logan, UT 84321
+		\newline \emph{Phone:} 435-797-2857 \qquad email: \url{jan.sojka@usu.edu}
+		\newline
+	\begin{comment}
+	\item \textbf{Dr. Damon T. Spayde} %\emph{Teaching Reference}
+       		\newline Department Chair \& Associate Professor of Physics
+		\newline Hendrix College, Conway, AR 72032
+		\newline \emph{Phone:} 501-450-1251 \qquad email:\url{spayde@hendrix.edu}
+		\newline
+	\item \textbf{Dr. Shane Larson} \emph{Collaborator}
+        		\newline Research Associate Professor
+		\newline Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA)
+		\newline Northwestern University, Evanston, IL 60208
+		\newline \emph{Phone:} 847-467-4305 \qquad \emph{email:}\url{s.larson@northwestern.edu}
+		\newline
+	\item \textbf{Dr. Todd Tinsley} %\emph{Teaching Reference}
+       		\newline Associate Professor of Physics
+		\newline Hendrix College, Conway, AR 72032
+		\newline \emph{Phone:} 501-450-1404 \qquad email:\url{tinsley@hendrix.edu}
+		\newline
+	\end{comment}
+	\end{itemize}
+%\subsection{Teaching}
 
 \end{document}
