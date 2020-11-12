@@ -126,10 +126,12 @@ pta = get_sorted_kw_list('pta')
 published = get_sorted_kw_list('published')
 submitted = get_sorted_kw_list('submitted')
 white = get_sorted_kw_list(['white paper', 'technical'])
+keypubs = get_sorted_kw_list('key')
 
 submitems = get_bibitems(submitted)
 publitems = get_bibitems(published)
 whiteitems = get_bibitems(white)
+keypubitems = get_bibitems(keypubs)
 
 for ii in publitems:
     print(ii)
@@ -146,6 +148,11 @@ with open(path+'/sub_entries.tex','w') as fout:
 
 with open(path+'/wp_entries.tex','w') as fout:
     for it in whiteitems:
+        fout.write(it + '\n')
+        fout.write('\n')
+
+with open(path+'/keypub_entries.tex','w') as fout:
+    for it in keypubitems:
         fout.write(it + '\n')
         fout.write('\n')
 
