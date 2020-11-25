@@ -54,7 +54,8 @@ with open(args.bibpath) as bibtex_file:
 # Fill in empt month values.
 [en.update({'month':'jan'}) for en in bib.entries if 'month' not in en.keys()]
 [en.update({'keywords':en['keywords']+', submitted'})
- for en in bib.entries if (en['journal']=='arXiv' and 'technical' not in en['keywords'])]
+ for en in bib.entries if (en['journal']=='arXiv'
+ and not any([other in en['keywords'] for other in ['accepted','technical']]))]
 def get_sorted_kw_list(kw):
     if isinstance(kw,(list,np.ndarray)):
         pass
@@ -103,6 +104,9 @@ def get_bibitems(bibs):
         jname = aastexbib[ent['journal']] if args.longjour else ent['journal']
         if 'Arxiv' in jname:
             jname += ent['eprint']
+            if 'accepted' in ent['keywords']:
+                jaccept = aastexbib[ent['accepted']] if args.longjour else ent['accepted']
+                jname = 'Accepted in ' + jaccept + ', ' + jname
         else:
             if 'number' in ent.keys():
                 numpage = ent['number']
@@ -125,10 +129,12 @@ theory = get_sorted_kw_list('theory')
 pta = get_sorted_kw_list('pta')
 published = get_sorted_kw_list('published')
 submitted = get_sorted_kw_list('submitted')
+accepted = get_sorted_kw_list('accepted')
 white = get_sorted_kw_list(['white paper', 'technical'])
 keypubs = get_sorted_kw_list('key')
 
 submitems = get_bibitems(submitted)
+acceptitems = get_bibitems(accepted)
 publitems = get_bibitems(published)
 whiteitems = get_bibitems(white)
 keypubitems = get_bibitems(keypubs)
@@ -143,6 +149,11 @@ with open(args.pubspath,'w') as fout:
 
 with open(path+'/sub_entries.tex','w') as fout:
     for it in submitems:
+        fout.write(it + '\n')
+        fout.write('\n')
+
+with open(path+'/accept_entries.tex','w') as fout:
+    for it in acceptitems:
         fout.write(it + '\n')
         fout.write('\n')
 
