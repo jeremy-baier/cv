@@ -1,5 +1,6 @@
 # Dr Jeffrey Shafiq Hazboun, PhD MPhys BS
-### *NANOGrav Physics Frontiers Center Senior Postodoctoral Fellow, University of Washington Bothell* <br/>Physical Sciences Division, <br/> 18115 Campus Way NE, <br/> Bothell, WA 98011-8246, USA
+### *Assistant Professor of Physics, Oregon State University* <br/>Department of Physics 
+<br/> 313 Weniger Hall <br/> Corvallis, OR 97331-6507, USA
 
 Listed below are links to my curriculum vitae and publication list.
 
