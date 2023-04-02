@@ -1,10 +1,10 @@
-# Dr Jeffrey Shafiq Hazboun, PhD MPhys BS
-### *Assistant Professor of Physics, Oregon State University* <br/>Department of Physics 
-<br/> 313 Weniger Hall <br/> Corvallis, OR 97331-6507, USA
+# Mr. Jeremy G. Baier 
+### *Physics Graduate Student, Oregon State University* <br/>Department of Physics 
+<br/> 401 Weniger Hall <br/> Corvallis, OR 97331-6507, USA
 
 Listed below are links to my curriculum vitae and publication list.
 
-For more information on my research, please visit my personal homepage: [jeffreyhazboun.github.io](http://jeffreyhazboun.github.io/)
+For more information on my research, please visit my personal homepage: [jeremy-baier.github.io](http://jeremy-baier.github.io/)
 
 PDF files can be accessed using the links below:
 
