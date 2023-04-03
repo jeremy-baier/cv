@@ -8,7 +8,7 @@ For more information on my research, please visit my personal homepage: [jeremy-
 
 PDF files can be accessed using the links below:
 
-- [**CV**](https://latexonline.cc/compile?git=https%3A%2F%2Fgithub.com%2FHazboun6%2Fcv&target=hazboun_cv%2Fhazboun_cv.tex&command=pdflatex&trackId=1601360428093)
+- [**CV**](https://latexonline.cc/compile?git=https%3A%2F%2Fgithub.com%2Fjeremy-baier%2Fcv&target=hazboun_cv%2Fhazboun_cv.tex&command=pdflatex&trackId=1601360428093)
 
 - [**Publication List**](https://latexonline.cc/compile?git=https%3A%2F%2Fgithub.com%2Fjeremy-baier%2Fcv&target=baier_cv%2Fbaier_publist.tex&command=pdflatex&trackId=1601360518616)
 
