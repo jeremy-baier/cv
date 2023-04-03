@@ -1,0 +1,227 @@
+\documentclass[11pt,letterpaper,sans,unicode]{moderncv}
+\usepackage{xpatch}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{enumitem}
+\usepackage{relsize}
+\usepackage{textcomp}
+\usepackage{units}
+\usepackage{lineno}
+\usepackage{rotating}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage[gen]{eurosym}
+\usepackage{comment}
+\usepackage{etaremune}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{hyperref}
+%\usepackage[latin9]{inputenc}
+
+
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[top=0.7in,bottom=0.7in,left=1in,right=1in,bindingoffset=0cm]{geometry}
+\setlength{\hintscolumnwidth}{3cm}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{lastpage}
+\usepackage{mathabx}
+\cfoot{{\color{gray} Page \thepage\ of \pageref{LastPage}}}
+
+\def\baas{{Bulletin of AAS}}               % Bulletin of the AAS
+\def\prd{{Phys. Rev.} D}
+\def\prl{{Phys.Rev.} Lett}
+\def\ajp{{Amer. J. Phys}}
+\def\apjl{{Astrophys. J.} Lett}
+\def\apjs{{Astrophys. J.} Supp}
+\def\apj{{Astrophys. J.}}
+\def\cqg{{Class. Quantum Grav.}}
+\def\aaps{{A\&AS}}
+\def\pasj{{PASJ}}
+\def\mnras{{MNRAS}}
+\def\aapr{{A\&ARv}}
+\def\aap{{A\&A}}
+\def\grg{{Gen. Rel.\&Grav.}}
+\def\na{{New Astronomy}}
+\def\ptp{{Progress of Theoretical Physics}}
+\def\araa{{ARA\&A}}
+\def\ssr{{Space Sci. Rev.}}
+\def\jpcs{{J. Phys. Conf. Ser.}}
+\def\npb{{Nucl. Phys. B}}
+\def\clrpaawp{{Can. Lon. Ran. Plan A\&A}}
+
+
+\newcommand{\cvreference}[9]{%
+  \textbf{#1}\newline% Name
+  \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+  \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+  \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+  \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+  \ifthenelse{\equal{#6}{}}{}{#6\newline}%
+  \ifthenelse{\equal{#7}{}}{}{#7\newline}%
+  \ifthenelse{\equal{#8}{}}{}{\emailsymbol~{\footnotesize \texttt{\emaillink[]{#8}}}\newline}
+  \ifthenelse{\equal{#9}{}}{}{\phonesymbol~#9}
+  }
+
+
+%%%%%% My Macros %%%%%
+\newcommand{\editem}[7]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{\hspace{4mm}\textbf{Advisor:} #5}{\hspace{4mm}\textbf{#6:} \textit{#7} }}
+%School City/State, School, Degree, Degree Date, Advisor, title type, title
+
+\newcommand{\bsitem}[4]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{}{}}
+%School City/State, School, Degree, Degree Date
+
+\newcommand{\pubitem}[4]{\item \cvitem{}{\textit{#1}.\\ {#2} \\{\color{color1} \href{#3}{\color{color1} #4}} }\vspace{-0.3cm}} %title, authors, href, journal %\textcolor{red}{$\bullet$} $141$ citations.
+
+\newcommand{\software}[3]{\cventry{}{\bbullet #2}{\hspace{2mm}\texttt{#1}}{}{}{\bbullet \color{color1} \url{#3}}} %Name, Description, URL
+%\vspace{-0.1cm}
+
+\newcommand{\talkitem}[3]{\item \textit{#1}\\{#2}, #3} %Title, Meeting, Date
+\newcommand{\invtalkitem}[3]{\item \textbf{#1}, \hfill{#2} \\ \textit{\color{color1}``#3''} \vspace{-0.1cm}} %Place, Title, Date
+
+%\newcommand{\invtalkitem}[3]{\cvitemwithcomment{}{\item #1 \color{color1}\textit{``#2''}}{#3} \vspace{-0.1cm}}
+\newcommand{\outtalkitem}[4]{\cvitemwithcomment{}{\bbullet #1, #2 \color{color1}\textit{``#3''}}{#4} \vspace{-0.1cm}} %What, Where, Title, Year
+\newcommand{\studentitem}[4]{\item \textit{#1}, {#2} \hfill{#3} \\ \textit{``#4''} } %Name, School, Date, Title\vspace{-0.1cm}
+\newcommand{\confitem}[2]{\item #1 \hfill #2} %Meeting, Date
+
+\newcommand{\blucirc}{{\color{color1} $\circ\;\;$}}
+\newcommand{\bbullet}{\hspace{0.4cm}\blucirc}
+
+%----------------------------------------------------------------------------------------
+%   NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{\huge{Jeffrey~S.}} % Your first name
+\familyname{\huge{Hazboun}} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{\huge{Presentations}}
+\address{Physical Sciences Division, University of Washington Bothell}{18115 Campus Way NE Bothell, WA 98011-8246, USA}
+\phone[mobile]{+1~(801)~440~2156}
+\email{hazboun@uw.edu}
+\homepage{jeffreyhazboun.github.io}
+\social[github]{Hazboun6}
+\social[twitter]{jeffreyhazboun}
+%\social[linkedin][linkedin.com/in/]{stephen-taylor}
+
+\lhead{{\color{gray} \fontsize{10}{22}\mdseries\upshape{Jeffrey~S.~Hazboun}}}
+\rhead{{\color{gray} \fontsize{10}{10}\mdseries\upshape{hazboun@uw.edu}}}
+
+%\definecolor{color1}{HTML}{1f77b4}
+%\hypersetup{urlcolor=color1,linkcolor=color1}
+
+\begin{document}
+\makecvtitle
+
+\vspace{-13mm}
+%----------------------------------------------------------------------------------------
+%   WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%  FULL PRESENTATIONS
+%----------------------------------------------------------------------------------------
+%\pagebreak
+\section{Full Presentation List}
+%\vspace{-0.3cm}
+\subsection{Invited talks} %\vspace{-0.6cm}
+\renewcommand\labelenumi{\bfseries\theenumi .}
+
+\begin{etaremune}[leftmargin=8mm]
+\small
+\invtalkitem{Idaho State University Colloquium}{October, 2021}{The Search for Lumbering Giants}
+\invtalkitem{Gravitational Wave Astronomy Northwest}{July, 2021}{Pulsar Timing Array Gravitational Wave Astronomy Update}
+\invtalkitem{Los Alamos National Lab}{April, 2021}{Searching for Nanohertz Gravitational Waves with a Galactic-Scale Detector}
+\invtalkitem{University of Missouri}{March, 2021}{Searching for Nanohertz Gravitational Waves with a Galactic-Scale Detector}
+\invtalkitem{Univ. of Wisc. Milwaukee, Center for Grav., Cosmo. and Astroph. Seminar}{February, 2021}{Doubling Down on Single Source Sensitivity}
+\invtalkitem{CERN Theory Colloquium}{January, 2021}{Highlights from the Search for Gravitational Waves in NANOGrav Datasets}
+\invtalkitem{Gravitational Wave Astronomy Northwest}{June, 2020}{Update on the search for gravitational waves in NANOGrav and IPTA datasets}
+\invtalkitem{LIGO Hanford Seminar}{March, 2020}{The Search for Lumbering Giants}
+\invtalkitem{American Astronomical Society 235th Meeting, NANOGrav Special Session}{January, 2020}{Highlights from the search for gravitational waves in NANOGrav datasets}
+\invtalkitem{Montana State University, Physics Colloquium}{November, 2019}{Exploring the discovery space of pulsar timing arrays with realistic sensitivity curves}
+\invtalkitem{Whitman College, Physics Colloquium}{October, 2019}{The Search for Lumbering Giants:\\ Observing the Nanohertz Gravitational-Wave Sky with Pulsar Timing Arrays}
+\invtalkitem{22nd International Conference on General Relativity and Gravitation (GR22)\\ \& 13th Edoardo Amaldi Conference on Gravitational Waves (Amaldi13)}{July, 2019}{Education and Public Outreach Efforts by Pulsar Timing Array Collaborations}
+\invtalkitem{Northwest APS Meeting}{May, 2019}{The Search for Lumbering Giants:\\Observing the Nanohertz Gravitational-Wave Sky with Pulsar Timing Arrays}
+\invtalkitem{Gravitational Wave Physics and Astronomy Workshop}{December, 2019}{Current Status of Pulsar Timing Array Gravitational Wave Astronomy}
+\invtalkitem{University of Washington Bothell Physical Sciences Division Seminar}{December, 2018}{Observing the Nanohertz Gravitational-Wave Sky with Pulsar Timing Arrays}
+\invtalkitem{University of Washington Seattle AstroLunch Talk}{February, 2018}{A Galactic Scale Gravitational Wave Detector: The NANOGrav 11yr Limits}
+
+\invtalkitem{University of Washington Bothell Physical Sciences Division Seminar Seminar}{November, 2017}{The NANOGrav Pulsar Timing Array:\\Using simulations to characterize our galactic gravitational wave detector.}
+\invtalkitem{University of Texas Rio Grande Valley Arecibo Remote Command Center Meeting}{February, 2017}{Simulating Pulsar Signals for Noise Characterization of PTAs}
+\invtalkitem{University of Arkansas Physics Colloquium}{February, 2016}{Gravitational Wave Astronomy in the 2nd Century of GR}
+\invtalkitem{Western Washington University Physics Colloquium}{May, 2015}{A New Window into the Cosmos}
+\invtalkitem{Brigham Young University Physics Theory Seminar}{February, 2015}{Gravitational Gauge Theory and the Dark Cosmological Constituents}
+\invtalkitem{Georgia Tech Center for Relativistic Astrophysics, Departmental Colloquium}{March, 2013}{Biconformal Space \& Testing Alternative Theories of Gravity using Multi-Messenger Astronomy}
+\invtalkitem{Utah State University Physics Colloquium}{February, 2013}{Best Practices for the Online Classroom}
+\invtalkitem{Utah State University Physics Colloquium}{September 2010}{Curved Phase Space from conformal symmetry}
+\invtalkitem{Oregon State Physics Colloquium}{March 2009}{Spherical Shells in a Schwarzschild Background}
+
+\end{etaremune}
+%\vspace{-0.6cm}
+\subsection{Contributed presentations} %\vspace{-0.6cm}
+
+\renewcommand\labelenumi{\bfseries\theenumi .}
+\begin{etaremune}[leftmargin=8mm]
+\small
+\talkitem{Full PTA Advanced Noise Modeling Update}{NANOGrav Fall Meeting}{Virtual/Nashville TN, October, 2021}
+\talkitem{Comparing Single-Source Statistics for PTA Observing Strategies}{American Physical Society April Meeting}{Virtual, April, 2021}
+\talkitem{Doubling Down on Single Source Sensitivity}{American Astronomical Society Meeting}{Virtual, January, 2021}
+\talkitem{Model Dependence of Bayesian Gravitational Wave Background Statistics in PTAs}{International Pulsar Timing Array Meeting}{Virtual, September, 2020}
+\talkitem{Predicting NANOGrav's Sensitivity into the future with \texttt{hasasia}}{American Physical Society April Meeting}{Virtual, April, 2020}
+\talkitem{Exploring the Nanohertz Gravitational-Wave Discovery Space with Sensitivity Curves and \texttt{hasasia}}{American Astronomical Society Meeting}{Honolulu, HI, January, 2020}
+\talkitem{Gravitational Wave Astronomy with the NANOGrav Pulsar Timing Array}{Texas Symposium on Relativistic Astrophysics}{Portsmouth, UK, December, 2019}
+\talkitem{Modeling Astrophysical Noise Sources in PTAs}{Fall NANOGrav Meeting}{Ithaca, NY, October, 2019}
+\talkitem{Realistic Pulsar Timing Array Sensitivity Curves}{GR22/Amaldi13}{Valencia, Spain, July, 2019}
+\talkitem{Pulsar Timing Array Sensitivity Curves}{American Physical Society April Meeting}{Denver, Colorado, April, 2019}
+\talkitem{Characterizing the Sensitivity of the NANOGrav 11-year Data Set}{Spring NANOGrav Meeting} Bothell, Washington, March, 2019
+\talkitem{Bayesian Monitoring of Solar Electron Density Using NANOGrav Data sets}{American Astronomical Society Meeting}{Seattle, Washington, January, 2019}
+\talkitem{Bayesian Monitoring of the Solar Wind with Pulsar Timing Arrays}{AstroNWxSW}{Vancouver, British Columbia, November, 2018}
+\talkitem{Spurious Gravitational Wave Detections in the NANOGrav 11 Year Data Set}{Fall NANOGrav Meeting}{Green Bank, West Virginia, October, 2018}
+\talkitem{The International Pulsar Timing Array Mock Data Challenge}{LISA Symposium} Chicago, Illinois, July, 2018
+\talkitem{Evolution of the Detection Statistics in the NANOGrav Dataset}{International Pulsar Timing Array Meeting}{Albuquerque, New Mexico, June, 2018}
+\talkitem{Noise Evolution in the NANOGrav 11 Year Data Set}{Northwest Section APS Meeting}{Tacoma, Washington, June, 2018}
+\talkitem{Publishing a Gravitational Wave Stochastic Background Analysis}{Python in Astronomy}{New York, New York, May, 2018}
+\talkitem{Slicing the NANOGrav 11 Year Data Set}{American Physical Society April Meeting}{Columbus, Ohio, April, 2018}
+\talkitem{Evolution of the NANOGrav 11 Year Data Set}{Spring NANOGrav Meeting}{Charlottesville, Virginia, March, 2018}
+\talkitem{Slicing the NANOGrav 11 Year Data Set}{Fall NANOGrav Meeting} Easton, Pennsylvania, October, 2017
+\talkitem{The NANOGrav pulsar signal simulator}{International Pulsar Timing Array}{S\`{e}vres, France, July, 2017}
+\talkitem{Late-time quadrupolar gravitational wave power in de Sitter space}{American Physical Society April Meeting}{Washington, DC, January, 2017}
+\talkitem{Null Stream Approach with PTAs: Noise Characterization and Excess Power}{American Astronomical Society 227th Meeting}{Grapevine, Texas, January, 2017}
+\talkitem{Assessing the null stream approach for source localization in PTAs}{Fall NANOGrav Meeting}{Urbana, Illinois, October, 2016}
+\talkitem{Comparing transverse-traceless decompositions of symmetric tensors}{Int. Soc. for General Relativity and Gravitation 21st Meeting}{New York City, New York, July, 2016}
+\talkitem{Null Stream Approach for finding Sky Position of Pulsar Timing Array sources}{American Physical Society April Meeting}{Salt Lake City, Utah, April, 2016}
+\talkitem{A Cartan Geometry approach to the AdS/CFT}{Midwest Gravity Meeting}{Evanston, Illinois, October, 2015}
+\talkitem{Tracing the AdS/CFT Degrees of Freedom using Cartan Geometry}{American Physical Society April Meeting}{Baltimore, Maryland, April 2015}
+\talkitem{Conformal gravity, dark matter and time}{Midwest Gravity Meeting}{Rochester, MI, November, 2014}
+\talkitem{Conformal gravity, dark matter and time}{APS Four Corners Meeting}{Orem, Utah, October 2014}
+\talkitem{Time from the conformal symmetries of a Euclidean space}{Midwest Gravity Meeting} Milwaukee, Wisconsin, October 2013
+\talkitem{Lorentzian geometry from the conformal symmetries of a Euclidean space}{Loops 13: International Conference on Quantum Gravity}{Waterloo, Canada, July 2013}
+\talkitem{Testing Bimetric and Massive Gravity Theories using Multi-Messenger Astronomy}{GR20/AMALDI$\;$10}{Warsaw, Poland, July 2013}
+\talkitem{Lorentzian spin connection from the conformal symmetries of a Euclidean space}{53rd Cracow School of Theoretical Physics}{Zakopane, Poland, June 2013}
+\talkitem{General relativity in signature changing phase space}{Pacific Coast Gravity Meeting}{Davis, California, March 2013}
+\talkitem{General relativity in phase space with a natural notion of time}{Pacific Coast Gravity Meeting}{Santa Barbara, California, March 2012}
+\talkitem{A systematic construction of curved phase space: A gravitational gauge theory with symplectic form}{Loops 11: International Conference on Quantum Gravity}{Madrid, Spain, May 2011}
+\talkitem{Quantum gravity in relativistic phase space}{Intermountain Graduate Research Symposium}{Logan, Utah, March 2010}
+\talkitem{Multiple Spherical Shells in Schwarzschild Spacetime}{12th Marcel Grossman Gravity Meeting}{Paris, France, July 2009}
+\talkitem{Single Spherical Shells in Schwarzschild Spacetime}{Pacific Coast Gravity Meeting}{Eugene, Oregon, March 2009}
+
+
+\end{etaremune}
+%\vspace{-0.6cm}
+\subsection{Posters}
+\begin{etaremune}[leftmargin=8mm]
+\small
+\talkitem{The NANOGrav Pulsar Signal Simulator}{American Astronomical Society Meeting}{Honolulu, HI, January, 2020}
+\talkitem{Pulsar Timing Array Source Location Using the Null Signal Approach}{American Astronomical Society 225th Meeting}{Seattle, Washington, January 2015}
+\talkitem{Multiple Spherical Shells in Schwarzschild Spacetime}{TEXAS Symposium on Relativistic Astrophysics}{Vancouver, Canada, December 2008}
+\end{etaremune}
+
+
+\end{document}
