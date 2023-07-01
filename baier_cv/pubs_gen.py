@@ -9,7 +9,7 @@ from datetime import datetime
 parser = argparse.ArgumentParser()
 
 path = os.path.dirname(os.path.abspath(__file__))
-bibpath = path +'/hazboun_cv.bib'
+bibpath = path +'/baier_cv.bib'
 pubspath = path + '/pub_entries.tex'
 maintex_path = './'
 parser.add_argument('--bibpath', dest='bibpath', action='store',
@@ -91,15 +91,15 @@ def get_bibitems(bibs):
         author_list = ['~'.join(au.split(', ')[::-1]) for au in author_list]
         L = len(author_list)
         if L > 5:
-            if 'Hazboun' in author_list[0]:
-                authors = r"""\textbf{{J.~S.~{{Hazboun}}}}, et al. [{0} Authors]""".format(L)
-            elif 'Hazboun' in author_list[1]:
-                authors = r"""{0}, \textbf{{J.~S.~{{Hazboun}}}}, et al. [{1} Authors]""".format(author_list[0],L)
+            if 'Baier' in author_list[0]:
+                authors = r"""\textbf{{J.~G.~{{Baier}}}}, et al. [{0} Authors]""".format(L)
+            elif 'Baier' in author_list[1]:
+                authors = r"""{0}, \textbf{{J.~G.~{{Baier}}}}, et al. [{1} Authors]""".format(author_list[0],L)
             else:
-                authors = r"""{0}, [...], \textbf{{J.~S.~{{Hazboun}}}}, et al. [{1} Authors]""".format(author_list[0],L)
+                authors = r"""{0}, [...], \textbf{{J.~G.~{{Baier}}}}, et al. [{1} Authors]""".format(author_list[0],L)
         elif L<=5:
             authors = ', '.join(author_list)
-            authors= authors.replace('J.~S.~{Hazboun}','\\textbf{J.~S.~Hazboun}')
+            authors= authors.replace('J.~G.~{Baier}','\\textbf{J.~G.~Baier}')
 
         jname = aastexbib[ent['journal']] if args.longjour else ent['journal']
         if 'Arxiv' in jname:
