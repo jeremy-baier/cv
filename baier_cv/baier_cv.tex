@@ -24,7 +24,7 @@
 
 
 \moderncvstyle{banking}
-\moderncvcolor{blue}
+\moderncvcolor{orange}
 
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[top=0.7in,bottom=0.7in,left=1in,right=1in,bindingoffset=0cm]{geometry}
@@ -83,6 +83,8 @@
 \newcommand{\software}[3]{\cventry{}{\bbullet #2}{\hspace{2mm}\texttt{#1}}{}{}{\bbullet \color{color1} \url{#3}}} %Name, Description, URL
 %\vspace{-0.1cm}
 
+\newcommand{\confitem}[3]{\item {#1}\\{#2}, #3}
+%conference, place, date
 \newcommand{\talkitem}[3]{\item \textit{#1}\\{#2}, #3} %Title, Meeting, Date
 \newcommand{\invtalkitem}[3]{\item \textbf{#1}, \hfill{#2} \\ \textit{\color{color1}``#3''} \vspace{-0.1cm}} %Place, Title, Date
 
@@ -107,7 +109,7 @@
 %\phone[mobile]{+1~(801)~440~2156}
 \phone{+1~(504)~913~4014}
 \email{baierj@oregonstate.edu}
-\homepage{jeremy-baier.github.io}
+%\homepage{jeremy-baier.github.io}
 \social[github]{jeremy-baier}
 \social[twitter]{jeremygbaier}
 \social[linkedin][linkedin.com/in/]{jeremygbaier}
@@ -126,16 +128,16 @@
 %   WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Professional Experience}
+%\section{Professional Experience}
 
-\cventry{September 2022--Present}{\hspace{0.4cm}{\blucirc}Graduate Teaching Assistant}
-{\textsc{Oregon State University}}
-{Corvallis, OR}{}{} %\vspace{-6mm}
+%\cventry{September 2022--Present}{\hspace{0.4cm}{\blucirc}Graduate Teaching Assistant}
+%{\textsc{Oregon State University}}
+%{Corvallis, OR}{}{} %\vspace{-6mm}
 %
 
-\cventry{August 2019--May 2022}{\hspace{0.4cm}{\blucirc}Researcher at Kenyon LIGO Lab}
-{\textsc{Kenyon College}}
-{Gambier, OH}{}{} %\vspace{-6mm}
+%\cventry{August 2019--May 2022}{\hspace{0.4cm}{\blucirc}Researcher at Kenyon LIGO Lab}
+%{\textsc{Kenyon College}}
+%{Gambier, OH}{}{} %\vspace{-6mm}
 %
 
 %----------------------------------------------------------------------------------------
@@ -145,10 +147,19 @@
 \section{Education}
 %School City/State, School, Degree, Degree Date, Advisor, title type, title
 
-%\editem{Corvallis, Oregon}{Oregon State University}{PhD in Physics (in progress)}{Sept 2022 - present}{Dr.~Jeffrey~S.~Hazboun}{phd}{not started}
-\vspace{2mm}
+%\cventry
+%\newcommand{\editem}[7]{\cventry{#1}{\hspace{4mm}#2 \vspace*{1mm}}{#3}{#4}{}{\hspace{4mm}\textbf{Advisor:} #5}{\hspace{4mm}\textbf{#6:} \textit{#7} }}
 
-%\editem{Gambier, Ohio}{Kenyon College}{BA Mathematics & Physics}{May 2022}{Dr.~Leslie Wade}{Capstone Title}{Constraining the Neutron}
+%the editem marco is giving me much difficulty.
+%\editem{Corvallis, Oregon}{Oregon State University}{Graduate School}{Sept 2022 - present}{Dr.~Jeffrey~S.~Hazboun}
+
+\bsitem{Corvallis, Oregon}{Oregon State University}{Graduate School}{Sept. 2022 - Present}
+
+\bsitem{Gambier, Ohio}{Kenyon College}{BA Mathematics and Physics}{May 2022}
+
+%\vspace{0.2 cm}
+
+%\editem{Gambier, Ohio}{Kenyon College}{BA Mathematics and Physics}{May 2022}{Dr. Leslie Wade}{Capstone Title}{Constraining the neutron star equation of state from binary neutron star mergers}
 %\vspace{2mm}
 
 %\bsitem{Syracuse, New York}{State University of New York, College of Environmental Science and Forestry}{BS Biology}{December 1999}
@@ -157,7 +168,15 @@
 %   RESEARCH SECTION
 %----------------------------------------------------------------------------------------
 %\vspace{-4mm}
-%\section{Research Interests}
+\section{Research Projects}
+
+%\cvitem{Advanced searches in light curves}{Working with Dr. Jeffrey Hazboun and Rodney Downer at Oregon State University, }
+
+\cvitem{Single source sensitivity curves in hasasia}{Dr. Jeff Hazboun created the software package hasasia to create realistic sensitivity curves for pulsar timing arrays (PTA). I have been working with Dr. Hazboun to improve hasasia's ability to create realistic sensitivity curves for single sources in a PTA}
+
+\cvitem{Gravitational wave tails}{Working with Dr. Leslie and Madeline Wade at Kenyon college alongside Dr. Craig Copi and Dr. Glenn Starkman at Case Western, I performed a study of LIGO events searching for gravitational wave tails -- gravitational waves scattered off of massive objects.}
+
+\cvitem{Neutron star equation of state}{Working with Dr. Leslie Wade at Kenyon College, I implemented parameterized equation of state models in LIGO's parameter estimation software. These models allow for direct Bayesian inference on the neutron star equation of state using binary neutrons star merger data.}
 %\cvitem{Primary interests}{gravitational-wave astronomy~$\bullet$~theoretical astrophysics~$\bullet$~massive black-hole binaries~$\bullet$~stellar-mass compact objects~$\bullet$~pulsar timing~$\bullet$~statistical inference}
 %\cvitem{Secondary interests}{galaxy formation and evolution~$\bullet$~cosmology~$\bullet$~pulsar physics and demographics~$\bullet$~ionized interstellar medium}
 %\cvitem{Specific interests}{Bayesian hierarchical modeling~$\bullet$~pulsar-timing data-analysis for nanohertz gravitational-wave searches~$\bullet$~compact-binary demographics and population inference~$\bullet$~pulsar-timing noise characterization and mitigation~$\bullet$~waveform modeling for supermassive black-hole binary searches~$\bullet$~modeling final-parsec dynamics of supermassive black-hole binaries~$\bullet$~stochastic signal analysis strategies}
@@ -166,12 +185,24 @@
 %   GRANTS & FUNDING
 %----------------------------------------------------------------------------------------
 
-%\section{Grants, Funding \& Awards}
+\section{Funding \& Awards}
 
-%\cvitemwithcomment{}{\textbf{Proposal (PI): ``Pulsar Timing Array GW Signal Analysis Using Big Data Techniques''}}{2019}
+%kenyon summer sciences fund
+%\cvitem{Kenyon Summer Sciences Grant}
+
+
+\cvitemwithcomment{}{\textbf{APS DGRAV Travel Award}}{2022}
+\hspace{15}(\textit{$\$300$})
+
+\cvitemwithcomment{}{\textbf{Kenyon Summer Sciences Grant}}{2021}
+\hspace{15}(\textit{$\$4000$})
+
+\cvitemwithcomment{}{\textbf{Kenyon Summer Sciences Grant}}{2020}
+\hspace{15}(retracted due to Covid-19)
+
 %\begin{tabular}{rcl}
 %&\hspace{0.4cm} &{\color{color1} $\circ\;\;$}PI Jeffrey Hazboun, a submission to Amazon Web Services Machine Learning Research Awards. \\
-%&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total award: $\$50,000$ in AWS Promotional Credits.\\
+%5&\hspace{0.4cm} &  {\color{color1} $\circ\;\;$}Total award: $\$50,000$ in AWS Promotional Credits.\\
 %\end{tabular} \\
 
 %----------------------------------------------------------------------------------------
@@ -216,7 +247,7 @@
 %  FULL PUBLICATION LIST
 %----------------------------------------------------------------------------------------
 
-%\section{Publications}
+\section{Publications}
 
 %\cvitem{}
 %{
@@ -244,9 +275,9 @@
 
 %\subsection{Published}
 
-%\begin{etaremune}[leftmargin=8mm]
-%\input{pub_entries}
-%\end{etaremune}
+\begin{etaremune}[leftmargin=8mm]
+\input{pub_entries}
+\end{etaremune}
 
 %\subsection{Technical and White Papers}
 
@@ -261,15 +292,15 @@
 \section{Teaching \& Mentoring}
 
 %\textbf{\textcolor{black}{Lecturing:}}
-\subsection{Teaching Positions}
+\subsection{Teaching Assistant Positions}
 	\renewcommand\labelitemi{\blucirc}
 	\begin{itemize}[leftmargin=8mm]
 	\setlength\itemsep{1mm}
 	\item \textbf{\color{color1} Graduate Teaching Assistant}, Oregon State University, \hfill Fall 2022 - Present
         		\newline  \textit{Descriptive Astronomy }
-	\item \textbf{\color{color1} Teaching Assistant}, Hendrix College, \hfill Spring 2020 - Spring 2022
+	\item \textbf{\color{color1} Teaching Assistant}, Kenyon College, \hfill Spring 2020 - Spring 2022
         		\newline  \textit{General Physics I, General Physics II, Fields and Spacetime}
-		\newline Graded student work and maintained gradebook.
+			\newline Graded student work and maintained gradebook.
 	\end{itemize}
 
 
@@ -293,6 +324,8 @@
 %   OUTREACH SECTION
 %----------------------------------------------------------------------------------------
 %\vspace{-2mm}
+\begin{comment}
+
 \section{Leadership \& Professional Service}
 
 \subsection{Research leadership}
@@ -311,7 +344,7 @@
 \hspace{0.5mm} \blucirc General Relativity \& Gravitation  \hfill \blucirc Monthly Notices of the Royal Astronomical Society
 
 \hspace{0.5mm} \blucirc Physical Review Letters  \hfill \blucirc European Journal of Physics
-
+\end{comment}
 %\vspace{-5mm}
 
 %\subsection{Seminar organization}
@@ -324,15 +357,19 @@
 \end{comment}
 
 
-\subsection{Professional affiliations}
+\subsection{Professional Affiliations}
 %
 \cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ LIGO Scientfic Collaboration, \textit{Member}}{} \vspace{-0.1cm}
-
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ North American Nanohertz Observatory for Gravitational-waves (NANOGrav), \textit{Associate member}}{} \vspace{-0.1cm}
 \cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ International Pulsar Timing Array (IPTA), \textit{Member}}{} \vspace{-0.1cm}
 \cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ American Physical Society (DGRAV), \textit{Member}}{} \vspace{-0.1cm}
-%\vspace{-0.1cm}
-\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ American Astronomical Society, \textit{Member}}{} \vspace{-0.1cm}
+\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ North American Nanohertz Observatory for Gravitational-waves (NANOGrav), \textit{Associate Member}}{} \vspace{-0.1cm}
+
+%\cvitemwithcomment{}{\hspace{0.4cm}${\color{color1} \circ}\;$ American Astronomical Society, \textit{Member}}{} \vspace{-0.1cm}
+
+%----------------------------------------------------------------------------------------
+%   SOFTWARE SECTION
+%----------------------------------------------------------------------------------------
+%\vspace{-2mm}
 
 \section{Software Development}
 
@@ -343,29 +380,15 @@
 \software{hasasia}{Python package for calculating pulsar timing array sensitivity curves and signal-to-noise ratios.}{https://pypi.org/project/hasasia/}
 %\vspace{-0.1cm}
 
-%\vspace{-3mm}
-\section{Outreach}
-
-\subsection{Outreach}
-\renewcommand\labelenumi{\bfseries\theenumi .}
-\small
-\outtalkitem{North City Tech Meetup}{}{Searching for Gravitational Waves with a Galactic-Scale Detector}{2021}
-\outtalkitem{Gravitational Wave Astronomy}{Eastside Preparatory}{How are gravitational waves detected?}{2020}
-\outtalkitem{Science Wednesday Panel Discussion}{King's Live Music}{The Science of Time Travel}{2015}
-\outtalkitem{Science Fiction Club Talk}{Hendrix College}{Black Holes and Wormholes}{2015}
-\outtalkitem{Science Unwrapped (500 person public lecture)}{Utah State University}{Explore to Conserve}{2013}
-\outtalkitem{Conservation Club Talk}{Weber State}{A Scientist's Role in Conservation}{2012}
-\outtalkitem{Science Unwrapped}{Swaner Ecocenter}{A Scientist's Role in Modern Exploration}{2012}
-\outtalkitem{Cache Valley Stargazers Talk}{Logan, UT}{Black Holes: Ninjas of the Night Sky}{2009}
 
 %----------------------------------------------------------------------------------------
 %  FULL PRESENTATIONS
 %----------------------------------------------------------------------------------------
 %\pagebreak
-\section{Full Presentation List}
+\section{Presentation List}
 %\vspace{-0.3cm}
-\subsection{Invited talks} %\vspace{-0.6cm}
-\renewcommand\labelenumi{\bfseries\theenumi .}
+%\subsection{Invited talks} %\vspace{-0.6cm}
+%\renewcommand\labelenumi{\bfseries\theenumi .}
 
 %\begin{etaremune}[leftmargin=8mm]
 %\small
@@ -379,9 +402,10 @@
 \renewcommand\labelenumi{\bfseries\theenumi .}
 \begin{etaremune}[leftmargin=8mm]
 \small
-\talkitem{NANOGrav 15-year Detector Characterization Analysis}{NANOGrav Fall Meeting}{Milwaukee, October, 2022}
-\talkitem{Implementing Dynamic Polytrope Equation of state inference into BILBY}{American Physical Society April Meeting }{New York City, April, 2022}
-\talkitem{Constraining the Neutron Star Equation of State}{Kenyon College Senior Capstone}{Gambier, March, 2022}
+%\talkitem{NANOGrav 15-year Detector Characterization Analysis}{NANOGrav Fall Meeting}{Milwaukee, October, 2022}
+\talkitem{Modeling single source sensitivity with hasasia and holodeck}{International Pulsar Timing Array Meeting}{Port Douglas, Australia, 2023}
+\talkitem{Implementing a Dynamic Polytrope model of Neutron Star Equation of State in BILBY}{American Physical Society April Meeting }{New York City, New York, April, 2022}
+\talkitem{Constraining the Neutron Star Equation of State}{Kenyon College Senior Capstone}{Gambier, Ohio, March, 2022}
 
 
 
@@ -394,18 +418,32 @@
 \talkitem{Contraining the Neutron Star Equation of State}{Kenyon College Summer Science Fair}{Gambier, Ohio, September, 2021}
 \end{etaremune}
 
-\begin{comment}
+
+
+%----------------------------------------------------------------------------------------
+%  Conferences
+%----------------------------------------------------------------------------------------
+\section{Conferences}
+\begin{etaremune}[leftmargin=8mm]
+    \confitem{ALAMDI15: The Broad Reach of Gravitational Wave Science}{\textit{virtual}}{July 2023}
+    \confitem{International Pulsar Timing Array Meeting}{Port Douglas, Australia}{June 2023}
+    \confitem{NANOgrav Collaboration Meeting}{Corvallis, Oregon}{March 2023}
+    \confitem{Ligo-Virgo-Kagra Collaboration Meeting}{Evanston, Illinois}{March 2023}
+    \confitem{APS April Meeting}{New York}{April 2022}
+    \confitem{ALMALDI14: Conference on Gravitational Waves}{\textit{virtual}}{July 2021}
+\end{etaremune}
+
+%\begin{comment}
 \newpage
 \section{References}
-
 
 	\renewcommand\labelitemi{\blucirc}
 	\begin{itemize}[leftmargin=8mm]
 	\setlength\itemsep{0.05mm}
-	\item \textbf{Dr. Jeffrey Hazboun} \emph{NANOGrav Noise Budget Group Chair/ PhD Advisor}
+	\item \textbf{Dr. Jeffrey Hazboun} \emph{Graduate Research Advisor}
        			\newline Professor of Physics
 		\newline Oregon State University, Corvallis, OR 97331
-		\newline \qquad email:\url{jeffrey.hazboun@oregonstate.edu}
+		\newline \qquad \emph{email:} \url{jeffrey.hazboun@oregonstate.edu}
 		\newline
 	\item \textbf{Dr. Xavier Siemens} \emph{NANOGrav PI}
         		\newline Professor of Physics
@@ -415,16 +453,15 @@
 	\item \textbf{Dr. Leslie Wade} \emph{Undergraduate Advisor}
        		\newline Professor of Physics
 		\newline Kenyon College, Gambier, OH 43022
-		\newline \emph{Phone:} 740-427-5356 \qquad email:\url{wadel@kenyon.edu}
+		\newline \emph{Phone:} 740-427-5356 \qquad \emph{email:} \url{wadel@kenyon.edu}
 		\newline
 	\item \textbf{Dr. Madeline Wade} %\emph{Post Doctoral Advisor}
        		\newline Professor of Physics
 		\newline Kenyon College, Gambier, OH 43022
-		\newline \emph{Phone:} 740-427-5268 \qquad email:\url{wadem@kenyon.edu}
+		\newline \emph{Phone:} 740-427-5268 \qquad \emph{email:} \url{wadem@kenyon.edu}
 		\newline
 
 	\end{itemize}
-%\subsection{Teaching}
-\end{comment}
+%\end{comment}
 
 \end{document}
