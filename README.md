@@ -1,6 +1,6 @@
 # Mr. Jeremy G. Baier 
 ### *Physics Graduate Student, Oregon State University* <br/>Department of Physics 
-<br/> 401 Weniger Hall <br/> Corvallis, OR 97331-6507, USA
+<br/> 305 Weniger Hall <br/> Corvallis, OR 97331-6507, USA
 
 Listed below are links to my curriculum vitae and publication list.
 
