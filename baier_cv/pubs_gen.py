@@ -42,7 +42,8 @@ aastexbib = {r'\baas':r'{Bulletin of American Astronomical Society}',
              r'\joss':r'{Journal of Open Software Science}',
              r'\mnras':r'{Monthly Notices of the Royal Astronomical Society}',
              r'\clrpaawp':r'{Canadian Long Range Plan for Astronony and Astrophysics White Papers}',
-             r'arXiv':r'{Arxiv:}',}
+             r'arXiv':r'{Arxiv:}',
+             r'arXiv e-prints':r'{Arxiv:}'}
 
 Months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
 doi = 'https://doi.org/'
@@ -100,9 +101,8 @@ def get_bibitems(bibs):
         elif L<=5:
             authors = ', '.join(author_list)
             authors= authors.replace('J.~G.~{Baier}','\\textbf{J.~G.~Baier}')
-
         jname = aastexbib[ent['journal']] if args.longjour else ent['journal']
-        if 'Arxiv' in jname:
+        if 'Arxiv' in jname or 'arXiv' in jname:
             jname += ent['eprint']
             if 'accepted' in ent['keywords']:
                 jaccept = aastexbib[ent['accepted']] if args.longjour else ent['accepted']
@@ -132,7 +132,9 @@ submitted = get_sorted_kw_list('submitted')
 accepted = get_sorted_kw_list('accepted')
 white = get_sorted_kw_list(['white paper', 'technical'])
 keypubs = get_sorted_kw_list('key')
+inprep = get_sorted_kw_list('prep')
 
+prepitems = get_bibitems(inprep)
 submitems = get_bibitems(submitted)
 acceptitems = get_bibitems(accepted)
 publitems = get_bibitems(published)
@@ -149,6 +151,11 @@ with open(args.pubspath,'w') as fout:
 
 with open(path+'/sub_entries.tex','w') as fout:
     for it in submitems:
+        fout.write(it + '\n')
+        fout.write('\n')
+
+with open(path+'/prep_entries.tex','w') as fout:
+    for it in prepitems:
         fout.write(it + '\n')
         fout.write('\n')
 
