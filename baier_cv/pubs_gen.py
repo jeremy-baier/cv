@@ -56,7 +56,7 @@ with open(args.bibpath) as bibtex_file:
 [en.update({'month':'jan'}) for en in bib.entries if 'month' not in en.keys()]
 [en.update({'keywords':en['keywords']+', submitted'})
  for en in bib.entries if (en['journal']=='arXiv'
- and not any([other in en['keywords'] for other in ['accepted','technical']]))]
+ and not any([other in en['keywords'] for other in ['accepted','technical', 'prep']]))]
 def get_sorted_kw_list(kw):
     if isinstance(kw,(list,np.ndarray)):
         pass
@@ -87,7 +87,8 @@ def get_bibitems(bibs):
             try:
                 url = arxiv + ent['eprint']
             except:
-                print(ent['title'])
+                url = ''
+                print("bad url", ent['title'])
         author_list = ent['author'].split(' and ')
         author_list = ['~'.join(au.split(', ')[::-1]) for au in author_list]
         L = len(author_list)
@@ -101,21 +102,24 @@ def get_bibitems(bibs):
         elif L<=5:
             authors = ', '.join(author_list)
             authors= authors.replace('J.~G.~{Baier}','\\textbf{J.~G.~Baier}')
-        jname = aastexbib[ent['journal']] if args.longjour else ent['journal']
-        if 'Arxiv' in jname or 'arXiv' in jname:
-            jname += ent['eprint']
-            if 'accepted' in ent['keywords']:
-                jaccept = aastexbib[ent['accepted']] if args.longjour else ent['accepted']
-                jname = 'Accepted in ' + jaccept + ', ' + jname
+        if 'prep' in ent['keywords']:
+            jname = 'In Preparation'
         else:
-            if 'number' in ent.keys():
-                numpage = ent['number']
+            jname = aastexbib[ent['journal']] if args.longjour else ent['journal']
+            if 'Arxiv' in jname or 'arXiv' in jname:
+                jname += ent['eprint']
+                if 'accepted' in ent['keywords']:
+                    jaccept = aastexbib[ent['accepted']] if args.longjour else ent['accepted']
+                    jname = 'Accepted in ' + jaccept + ', ' + jname
             else:
-                numpage = 'pp. {0}'.format(ent['pages'])
-            jname += ', \\textbf{{{0}}}, {1}, ({2})'.format(ent['volume'],
-                                                        numpage,
-                                                        ent['year'])
-        # journal= journal, \textbf{volume},number, (year)
+                if 'number' in ent.keys():
+                    numpage = ent['number']
+                else:
+                    numpage = 'pp. {0}'.format(ent['pages'])
+                jname += ', \\textbf{{{0}}}, {1}, ({2})'.format(ent['volume'],
+                                                            numpage,
+                                                            ent['year'])
+            # journal= journal, \textbf{volume},number, (year)
         items.append(pubitem(ent['title'],
                              authors,
                              url,
