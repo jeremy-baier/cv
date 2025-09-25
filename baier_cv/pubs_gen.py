@@ -93,6 +93,8 @@ def get_bibitems(bibs):
         author_list = ['~'.join(au.split(', ')[::-1]) for au in author_list]
         L = len(author_list)
         if L > 5:
+            # if L == 200:
+            #     L = r'\>200'
             if 'Baier' in author_list[0]:
                 authors = r"""\textbf{{J.~G.~{{Baier}}}}, et al. [{0} Authors]""".format(L)
             elif 'Baier' in author_list[1]:
@@ -100,8 +102,11 @@ def get_bibitems(bibs):
             else:
                 authors = r"""{0}, [...], \textbf{{J.~G.~{{Baier}}}}, et al. [{1} Authors]""".format(author_list[0],L)
         elif L<=5:
+            print(author_list[0])
             authors = ', '.join(author_list)
             authors= authors.replace('J.~G.~{Baier}','\\textbf{J.~G.~Baier}')
+            authors= authors.replace('Jeremy G.~{Baier}','\\textbf{J.~G.~{Baier}}')
+            authors= authors.replace('Jeremy~{Baier}','\\textbf{J.~G.~{Baier}}')
         if 'prep' in ent['keywords']:
             jname = 'In Preparation'
         else:
