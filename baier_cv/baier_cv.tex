@@ -14,11 +14,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{longtable}
 \usepackage{xcolor}
+% define the accent color used throughout the CV (orange)
+\definecolor{color1}{HTML}{FF7F0E}
+% enable colored links using the same accent color
+\usepackage[colorlinks=true,urlcolor=color1,linkcolor=color1]{hyperref}
 \usepackage[gen]{eurosym}
 \usepackage{comment}
 \usepackage{etaremune}
 
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 %\usepackage{hyperref}
 %\usepackage[latin9]{inputenc}
 
@@ -33,7 +37,9 @@
 \setlist{nolistsep}
 \usepackage{lastpage}
 \usepackage{mathabx}
-\cfoot{{\color{gray} Page \thepage\ of \pageref{LastPage}}}
+% Footer: show page number and last page reference in gray.  \pageref is a hyperlink
+% (hyperref colors links), so temporarily set linkcolor=gray just for this reference.
+\cfoot{{\color{gray} Page \thepage\ of }{\begingroup\hypersetup{linkcolor=gray}\pageref{LastPage}\endgroup}}
 
 \def\baas{{Bulletin of AAS}}               % Bulletin of the AAS
 \def\prd{{Phys. Rev.} D}
@@ -117,8 +123,8 @@
 \lhead{{\color{gray} \fontsize{10}{22}\mdseries\upshape{Jeremy~G.~Baier}}}
 \rhead{{\color{gray} \fontsize{10}{10}\mdseries\upshape{baierj@oregonstate.edu}}}
 
-%\definecolor{color1}{HTML}{1f77b4}
-%\hypersetup{urlcolor=color1,linkcolor=color1}
+% \definecolor{color1}{HTML}{1f77b4}
+% \hypersetup{urlcolor=color1,linkcolor=color1}
 
 \begin{document}
 \makecvtitle
@@ -498,10 +504,10 @@ GBT/25A-369 \\
 \begin{etaremune}[leftmargin=8mm]
 \small
 % \invtalkitem{University of Michigan Colloquium}{October, 2022}{Lumbering Giants \& Nanohertz Unicorns}
-\invtalkitem{IPTA-wide Telecon}{December, 2025}{Noise Mitigation in NANOGrav}
+\invtalkitem{IPTA-wide Telecon}{December 3, 2025}{Noise Mitigation in NANOGrav}
 
 \end{etaremune}
-\vspace{-0.6cm}
+\vspace{-0.2cm}
 \subsection{Contributed presentations}
 %\vspace{-0.6cm}
 \renewcommand\labelenumi{\bfseries\theenumi .}
